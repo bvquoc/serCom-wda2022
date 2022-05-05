@@ -6,7 +6,7 @@ export default function RegisterForm() {
     password: "",
     fullName: "",
     email: "",
-    confirmPassword: ""
+    confirmPassword: "",
   });
 
   const onInputChange = (e) => {
@@ -18,7 +18,8 @@ export default function RegisterForm() {
 
   const handleSubmit = () => {
     const { username, password, confirmPassword, email, fullName } = formData;
-    if (!username || !password || !confirmPassword || !email || !fullName) return;
+    if (!username || !password || !confirmPassword || !email || !fullName)
+      return;
     console.log(formData);
   };
 
@@ -32,9 +33,27 @@ export default function RegisterForm() {
         name="username"
       />
       <br />
-      <input type="text" onChange={(e) => onInputChange(e)} placeholder="Full name" name="fullName" /><br />
-      <input type="email" onChange={(e) => onInputChange(e)} placeholder="Email" name="email" /><br />
-        <input type="password" onChange={(e) => onInputChange(e)} placeholder="Password" name="password" /><br />
+      <input
+        type="text"
+        onChange={(e) => onInputChange(e)}
+        placeholder="Full name"
+        name="fullName"
+      />
+      <br />
+      <input
+        type="email"
+        onChange={(e) => onInputChange(e)}
+        placeholder="Email"
+        name="email"
+      />
+      <br />
+      <input
+        type="password"
+        onChange={(e) => onInputChange(e)}
+        placeholder="Password"
+        name="password"
+      />
+      <br />
       <input
         type="password"
         onChange={(e) => onInputChange(e)}
@@ -42,7 +61,7 @@ export default function RegisterForm() {
         name="confirmPassword"
       />
       <br />
-      
+
       <button onClick={handleSubmit}>Login</button>
     </>
   );
