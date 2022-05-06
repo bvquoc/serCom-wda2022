@@ -4,7 +4,7 @@ const CreatePostButton = () => {
   return (
     <>
       <button className="create-post-btn">
-        <i class="bi bi-plus-square-dotted"></i> Tạo bài viết
+        <i className="bi bi-plus-square-dotted"></i> Tạo bài viết
       </button>
     </>
   );

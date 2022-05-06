@@ -8,7 +8,7 @@ import Loading from '../../components/onLoad/Loading';
 import WithDrawMoney from '../../components/user/wallet/WithDrawMoney';
 import MoneyDeposit from '../../components/user/wallet/MoneyDeposit';
 
-const wallet = () => {
+const Wallet = () => {
   const [id, setId] = useState(null);
   const [role, setRole] = useState(null);
   const [display, setDisplay] = useState(false);
@@ -48,4 +48,4 @@ const wallet = () => {
   );
 };
 
-export default wallet;
+export default Wallet;
