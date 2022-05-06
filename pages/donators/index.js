@@ -1,9 +1,12 @@
-import React from 'react'
+import Navigation from '../../components/layout/Navigation';
 
 const Donators = () => {
   return (
-    <div>Donators</div>
-  )
-}
+    <>
+      <Navigation />
+      <div>Donators</div>
+    </>
+  );
+};
 
-export default Donators
+export default Donators;

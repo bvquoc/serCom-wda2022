@@ -1,0 +1,26 @@
+.Footer{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5rem;
+}
+
+.Footer .left, .right{
+    display: flex;
+}
+
+.Footer .left .footer-item{
+    margin-right: 20px;
+    opacity: 0.7;
+    font-weight: 600;
+}
+
+.Footer .left .footer-item:hover{
+    opacity: 1;
+}
+
+.social-network a{
+    margin: 0 10px;
+}
+.social-network a i {
+    font-size: 1.5rem;
+}

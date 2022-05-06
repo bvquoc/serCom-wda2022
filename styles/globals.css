@@ -10,7 +10,10 @@ html,
 body {
   padding: 0;
   margin: 0;
+  min-height: 100vh;
+  margin: 1rem 5%;
 }
+
 
 a {
   color: inherit;
@@ -55,6 +58,12 @@ input{
   margin: 16px 0;
 }
 
+input[type="range"]{
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
 input:focus{
   border-color: var(--tertiaryColor) !important;
 }
@@ -62,7 +71,7 @@ input:focus{
 button{
   cursor: pointer;
   border-radius: 40px;
-  height: 48px !important;
+  height: 40px !important;
   outline: none;
   border: none;
   transition: all 0.2s ease;
@@ -73,11 +82,11 @@ button:hover{
   transform: scale(1.05);
 }
 
-body{
-  margin: 2rem 10%;
-}
-
 .center{
   display: grid;
   place-items: center;
+}
+
+cite{
+  opacity: 0.7;
 }

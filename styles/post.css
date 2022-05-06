@@ -1,0 +1,67 @@
+main{
+    display: grid;
+    grid-template-columns: 70% 30%;
+    gap: 1rem;
+}
+
+.post-container{
+    width: 100%;
+}
+
+.PostDetail{
+    width: 100%;
+    padding: 1rem;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+    border-radius: 10px;
+}
+
+.post-detail-top{
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-user-info{
+    display: flex;
+}
+
+.post-user-info-img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 1px solid black;
+}
+
+.post-user-info-name a{
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.donate-btn,.vote-btn{
+    background-color: var(--tertiaryColor) !important;
+    padding: 0.6rem 2rem;
+    height: fit-content !important;
+}
+
+.post-detail-bottom{
+    width: 100%;
+    margin: 1rem 0;
+}
+
+.target{
+    height: 10px;
+    background-color: var(--secondaryColor);
+    border-radius: var(--borderRadius);
+    position: relative;
+}
+
+.target-amout{
+    background-color: var(--quaternaryColor);
+    height: 10px;
+    width: 80%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: var(--borderRadius);
+}

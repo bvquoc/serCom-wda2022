@@ -1,0 +1,45 @@
+.grid-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.flex-default{
+    display: flex;
+}
+
+.flex-space-between{
+    display: flex;
+    justify-content: space-between;
+}
+
+.MoneyInWallet, .MoneyReceived{
+    border: 1px solid var(--tertiaryColor);
+    position: relative;
+    min-height: 200px;
+    background-color: var(--secondaryColor);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.MoneyInWallet:hover, .MoneyReceived:hover{
+    transform: scale(1.05);
+}
+
+.MoneyInWallet > h3, .MoneyReceived > h3{
+    position: absolute;
+    top: 0;
+    left: -1px;
+    background-color: var(--tertiaryColor);
+    width: fit-content;
+    padding: 0.5rem 1rem;
+}
+
+.money{
+    position: absolute;
+    font-size: 2rem;
+    font-weight: 500;
+    top: 50%;
+    text-align: center;
+    width: 100%;
+}

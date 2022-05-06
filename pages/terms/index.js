@@ -1,12 +1,12 @@
 import Navigation from '../../components/layout/Navigation';
 
-const FAQ = () => {
+const Terms = () => {
   return (
     <>
       <Navigation />
-      <div>FAQ</div>
+      <div>Terms</div>
     </>
   );
 };
 
-export default FAQ;
+export default Terms;

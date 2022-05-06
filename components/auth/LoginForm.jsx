@@ -1,24 +1,20 @@
-import Link from "next/link";
+import Link from 'next/link';
 import swal from 'sweetalert';
 import { useState } from 'react';
-
+import { onInputChange } from '../../libs';
 
 export default function LoginForm() {
   const [formData, setFormData] = useState({
-    username: "",
-    password: "",
+    username: '',
+    password: '',
   });
-
-  const onInputChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
 
   const handleSubmit = () => {
     const { username, password } = formData;
-    if (!username || !password) return;
+    if (!username || !password) {
+      swal('Vui lòng nhập đầy đủ thông tin!', '', 'warning');
+      return;
+    }
     console.log(formData);
     swal('Đăng nhập thành công!', '', 'success');
   };
@@ -30,13 +26,13 @@ export default function LoginForm() {
           <h1>Đăng nhập</h1>
           <input
             type="text"
-            onChange={(e) => onInputChange(e)}
+            onChange={(e) => onInputChange(e, formData, setFormData)}
             placeholder="Tên người dùng"
             name="username"
           />
           <input
             type="password"
-            onChange={(e) => onInputChange(e)}
+            onChange={(e) => onInputChange(e, formData, setFormData)}
             placeholder="Mật khẩu"
             name="password"
           />

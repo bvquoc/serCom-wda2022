@@ -5,3 +5,6 @@ export const PNSPage = () => {
     <div>PNSPage</div>
   )
 }
+
+
+export default PNSPage;

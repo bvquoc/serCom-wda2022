@@ -1,16 +1,20 @@
 .navigation{
     width: 100%;
-    height: 80px;
+    height: 70px;
     display: flex;
     justify-content: space-between;
+    box-shadow: 0 0 100px 0 rgba(0,0,0,0.1);
+    border-radius: var(--borderRadius);
+    padding: 0 1rem;
+    margin-bottom: 3rem;
+    position: relative;
 }
 
 .logo{
-    width: 60px;
-    height: 80px;
+    width: 50px;
+    height: 70px;
     display: grid;
     place-items: center;
-    margin-right: 2rem;
 }
 
 .flex-nav-item{
@@ -43,5 +47,38 @@
 
 .nav-item a:hover{
     transform: scale(1.05);
+    background-color: var(--navBarHoverColor);
+}
+
+.wallet{
+    background-color: var(--secondaryColor);
+}
+
+.img-dropdown{
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--quaternaryColor);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+.drop-down-content{
+    background-color: var(--primaryColor);
+    position: absolute;
+    width: max-content;
+    top: 101%;
+    right: 2rem;
+    border: 1px solid black;
+    border-top: 0px solid black;
+}
+
+.drop-down-content a{
+    padding: 10px 1rem;
+    display: block;
+}
+
+
+.drop-down-content a:hover{
     background-color: var(--navBarHoverColor);
 }
