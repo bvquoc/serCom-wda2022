@@ -1,0 +1,26 @@
+
+:root {
+    /* color */
+    --primaryColor: #FFFFFF;
+    --secondaryColor: #FFFCE6;
+    --tertiaryColor: #FFDD00;
+    --quaternaryColor: #000957;
+    --textColor: #000000;
+    --contrastTextColor: #FFFFFF;
+    --navBarHoverColor: #0000000d;
+
+    /* content */
+    --fontFamily: Roboto, Helvetica, sans-serif;
+    --titleFontSize: 40px;
+    
+    /* buttons */
+    --borderRadius: 40px;
+    
+    /* breakpoints */
+    --desktop: 1440px;
+    --laptop: 1024px;
+    --tablet: 768px;
+    --mobile: 414px;
+
+
+}
