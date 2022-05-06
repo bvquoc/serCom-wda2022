@@ -1,8 +1,10 @@
-import React from "react";
 import Link from "next/link";
+import swal from 'sweetalert';
+import { useState } from 'react';
+
 
 export default function LoginForm() {
-  const [formData, setFormData] = React.useState({
+  const [formData, setFormData] = useState({
     username: "",
     password: "",
   });
@@ -18,6 +20,7 @@ export default function LoginForm() {
     const { username, password } = formData;
     if (!username || !password) return;
     console.log(formData);
+    swal('Đăng nhập thành công!', '', 'success');
   };
 
   return (

@@ -4,7 +4,7 @@ import '../styles/navigation.css'
 import '../styles/form.css'
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return <Component {...pageProps} />;
 }
 
-export default MyApp
+export default MyApp;

@@ -1,8 +1,8 @@
-import React from "react";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function RegisterForm() {
-  const [formData, setFormData] = React.useState({
+  const [formData, setFormData] = useState({
     username: "",
     password: "",
     fullName: "",
