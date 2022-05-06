@@ -1,10 +1,13 @@
-import Navigation from '../../components/layout/Navigation';
+import NavigationLoggiedIn from '../../components/layout/NavigationLoggedIn';
 
 const Donators = () => {
   return (
     <>
-      <Navigation />
-      <div>Donators</div>
+      <NavigationLoggiedIn />
+      <div className='Donators'>
+        <h1>Danh sách Người ủng hộ</h1>
+        <p>Hiện tại chưa có Người ủng hộ nào</p>
+      </div>
     </>
   );
 };

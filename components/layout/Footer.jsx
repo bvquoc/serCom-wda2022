@@ -1,6 +1,11 @@
+import { useState } from 'react';
 import Link from 'next/link';
+import Privacy from '../docs/Privacy';
+import Terms from '../docs/Terms';
 
 export const Footer = () => {
+  const [displayPrivacy, setDisplayPrivacy] = useState(false);
+  const [displayTerms, setDisplayTerms] = useState(false);
   return (
     <>
       <div className="Footer">
@@ -16,14 +21,14 @@ export const Footer = () => {
             </Link>
           </div>
           <div className="footer-item center">
-            <Link href="/privacy" passHref>
-              <a>Quyền riêng tư</a>
-            </Link>
+            <div style={{ cursor: 'pointer' }} onClick={() => setDisplayPrivacy(true)}>
+              Quyền riêng tư
+            </div>
           </div>
           <div className="footer-item center">
-            <Link href="/terms" passHref>
-              <a>Điều khoản</a>
-            </Link>
+            <div style={{ cursor: 'pointer' }} onClick={() => setDisplayTerms(true)}>
+              Điều khoản
+            </div>
           </div>
         </div>
         <div className="right">
@@ -43,6 +48,8 @@ export const Footer = () => {
           </div>
         </div>
       </div>
+      <Privacy display={displayPrivacy} setDisplay={setDisplayPrivacy} />
+      <Terms display={displayTerms} setDisplay={setDisplayTerms} />
     </>
   );
 };

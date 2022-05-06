@@ -64,6 +64,12 @@ input[type="range"]{
   border: none;
 }
 
+input[type="radio"]{
+  all: unset;
+  appearance: auto;
+  width: 16px;
+}
+
 input:focus{
   border-color: var(--tertiaryColor) !important;
 }

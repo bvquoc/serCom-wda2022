@@ -6,6 +6,10 @@ import '../styles/footer.css'
 import '../styles/post.css'
 import '../styles/wallet.css'
 import '../styles/loadingstyle.css'
+import '../styles/docs.css'
+import '../styles/donators.css'
+import '../styles/personalInformation.css'
+import '../styles/responsive.css'
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;

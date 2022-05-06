@@ -1,9 +1,15 @@
-import React from 'react'
+import React from 'react';
+import SingleLogo from '../../components/layout/SingleLogo';
 
 const Help = () => {
   return (
-    <div>Help</div>
-  )
-}
+    <>
+      <SingleLogo />
+      <div className='Help'>
+        <h1>Tính năng đang được phát triển...</h1>
+      </div>
+    </>
+  );
+};
 
-export default Help
+export default Help;

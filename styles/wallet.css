@@ -1,45 +1,105 @@
-.grid-container{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
 }
 
-.flex-default{
+.flex-default {
+  display: flex;
+}
+
+.flex-space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-space-around{
     display: flex;
+    justify-content: space-around;
 }
 
-.flex-space-between{
+.flex-space-evenly{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
-.MoneyInWallet, .MoneyReceived{
-    border: 1px solid var(--tertiaryColor);
-    position: relative;
-    min-height: 200px;
-    background-color: var(--secondaryColor);
-    transition: all 0.2s ease;
-    cursor: pointer;
+.flex-default i {
+  font-size: 34px;
+  margin-left: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.MoneyInWallet:hover, .MoneyReceived:hover{
-    transform: scale(1.05);
+.flex-default i:hover {
+  transform: scale(1.05);
 }
 
-.MoneyInWallet > h3, .MoneyReceived > h3{
-    position: absolute;
-    top: 0;
-    left: -1px;
-    background-color: var(--tertiaryColor);
-    width: fit-content;
-    padding: 0.5rem 1rem;
+.MoneyInWallet,
+.MoneyReceived {
+  border: 1px solid var(--tertiaryColor);
+  position: relative;
+  min-height: 200px;
+  background-color: var(--secondaryColor);
+  transition: all 0.2s ease;
 }
 
-.money{
-    position: absolute;
-    font-size: 2rem;
-    font-weight: 500;
-    top: 50%;
-    text-align: center;
+.MoneyInWallet:hover,
+.MoneyReceived:hover {
+  transform: scale(1.05);
+}
+
+.MoneyInWallet > h3,
+.MoneyReceived > h3 {
+  position: absolute;
+  top: 0;
+  left: -1px;
+  background-color: var(--tertiaryColor);
+  width: fit-content;
+  padding: 0.5rem 1rem;
+}
+
+.money {
+  position: absolute;
+  font-size: 2rem;
+  font-weight: 500;
+  top: 50%;
+  text-align: center;
+  width: 100%;
+}
+
+.deposit-btn {
+  padding: 0 1rem;
+  margin-left: 1rem;
+  background-color: var(--secondaryColor);
+  border: 1px solid black;
+}
+
+.WithDrawMoney {
+  background-color: var(--secondaryColor);
+  padding: 2rem;
+  width: 350px;
+  border-radius: 10px;
+}
+
+.WithDrawMoney > h1 {
+  text-align: center;
+}
+
+.WithDrawMoney .confirm {
+  background-color: var(--quaternaryColor);
+  color: var(--contrastTextColor);
+  width: 100%;
+}
+
+label[for='payment'] {
+  background-color: var(--tertiaryColor);
+  padding: 0 1rem;
+  border-radius: 10px;
+}
+
+.cancel{
+    background-color: red;
+    margin-top: 1rem;
+    color: var(--contrastTextColor);
     width: 100%;
 }

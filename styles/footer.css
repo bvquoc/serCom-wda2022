@@ -24,3 +24,7 @@
 .social-network a i {
     font-size: 1.5rem;
 }
+
+.social-network a:hover{
+    color: var(--tertiaryColor);
+}

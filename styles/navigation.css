@@ -52,6 +52,7 @@
 
 .wallet{
     background-color: var(--secondaryColor);
+    border: 1px solid var(--tertiaryColor);
 }
 
 .img-dropdown{

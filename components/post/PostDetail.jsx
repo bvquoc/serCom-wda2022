@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import swal from 'sweetalert';
+
 export const PostDetail = () => {
   const handleDonate = () => {
     swal('Successful! Thank you for your donation!', '', 'success');

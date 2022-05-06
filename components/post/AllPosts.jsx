@@ -6,7 +6,7 @@ const AllPosts = () => {
     <>
     <div className='AllPosts'>
 
-      <h2>All Posts</h2>
+      <h2>Tất cả bài viết</h2>
       <div className="post-container">
         <PostDetail />
         

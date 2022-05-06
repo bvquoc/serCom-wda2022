@@ -28,7 +28,7 @@ const NavigationLoggiedIn = () => {
           </Link>
         </div>
         <div className="nav-item">
-          <Link href={{pathname: '/user/wallet', query: {id: "1", role: "pns"}}} passHref>
+          <Link href={{ pathname: '/user/wallet', query: { id: '1', role: 'pns' } }} passHref>
             <a className="wallet">Ví của tôi</a>
           </Link>
         </div>
@@ -37,9 +37,9 @@ const NavigationLoggiedIn = () => {
             <Image src="/icon-512x512.png" alt="Avatar" objectFit="contain" width={512} height={512} priority />
           </div>
         </div>
-        <div className="drop-down-content" style={{display: expand ? "block" : "none"}}>
-          <Link href="/user/[slug]" passHref>
-            <a>Thông tin cá nhân</a>
+        <div className="drop-down-content" style={{ display: expand ? 'block' : 'none' }}>
+          <Link href={{ pathname: '/user/profile', query: { id: '1', role: 'pns' } }} passHref>
+            <a>Hồ sơ</a>
           </Link>
           <Link href="/user/statistics" passHref>
             <a>Thống kê</a>

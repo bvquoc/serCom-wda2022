@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { onInputChange } from '../../libs';
+import swal from 'sweetalert';
 
 export default function RegisterForm() {
   const [formData, setFormData] = useState({
@@ -8,16 +9,18 @@ export default function RegisterForm() {
     password: '',
     fullName: '',
     email: '',
+    telephone: '',
     confirmPassword: '',
   });
 
   const handleSubmit = () => {
-    const { username, password, confirmPassword, email, fullName } = formData;
-    if (!username || !password || !confirmPassword || !email || !fullName) {
+    const { username, password, confirmPassword, email, telephone, fullName } = formData;
+    if (!username || !password || !confirmPassword || !email || !fullName || !telephone) {
       swal('Vui lòng nhập đầy đủ thông tin!', '', 'warning');
       return;
     }
     console.log(formData);
+    swal('Đăng ký thành công!', '', 'success');
   };
 
   return (
@@ -44,6 +47,13 @@ export default function RegisterForm() {
             onChange={(e) => onInputChange(e, formData, setFormData)}
             placeholder="Email"
             name="email"
+          />
+
+          <input
+            type="tel"
+            onChange={(e) => onInputChange(e, formData, setFormData)}
+            placeholder="Số điện thoại"
+            name="telephone"
           />
 
           <input
