@@ -53,7 +53,7 @@ export default function RegisterForm() {
     <>
       <MetaData title="Đăng ký" description="Đăng ký" />
       <div className="center">
-        <div className="RegisterForm">
+        <div className="RegisterForm" onKeyPress={(e) => e.key === 'Enter' && handleSubmit()}>
           <h1>Đăng kí</h1>
           <input
             type="text"
@@ -70,7 +70,7 @@ export default function RegisterForm() {
             placeholder="Số điện thoại"
             name="telephone"
           />
-          
+
           <input
             placeholder="Email"
             type="email"

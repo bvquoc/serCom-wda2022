@@ -11,7 +11,7 @@ const WelcomePage = () => {
           <button className="start-btn">Bắt đầu ngay</button>
         </Link>
       </div>
-      <p className="center">Nó hoàn toàn miễn phí, và chưa tốn đến một phút của bạn.</p>
+      <p className="center">Hoàn toàn miễn phí, và chưa tốn đến một phút của bạn.</p>
     </div>
   );
 };

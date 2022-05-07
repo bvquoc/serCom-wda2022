@@ -43,6 +43,13 @@
   padding: 0 1rem;
 }
 
+.update-btn{
+  background-color: var(--quaternaryColor);
+  color: var(--contrastTextColor);
+  margin-right: 1rem;
+  padding: 0 1rem;
+}
+
 .UpdatePost{
   background-color: var(--quaternaryColor);
   padding: 2rem;
@@ -58,4 +65,11 @@
   margin-top: 2rem;
   background-color: var(--tertiaryColor);
   padding: 0 1rem;
+}
+
+.UpdateUserInformation{
+  width: 80%;
+  background-color: var(--secondaryColor);
+  padding: 2rem;
+  border-radius: 10px;
 }

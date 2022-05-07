@@ -29,3 +29,11 @@
   background-color: var(--tertiaryColor);
   padding: 0 2rem;
 }
+
+.FAQ{
+  min-height: 50vh;
+}
+
+.Donators{
+  min-height: 50vh;
+}

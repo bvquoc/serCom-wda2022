@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { onInputChange } from '../../../libs';
+import { onInputChange } from '../../libs';
 
-const MoneyDeposit = ({ display, setDisplay }) => {
+const DonateAction = ({setDisplay}) => {
   const minMoney = 100000;
   const maxMoney = 20000000;
 
@@ -9,6 +9,7 @@ const MoneyDeposit = ({ display, setDisplay }) => {
     money: 0,
     paymentMethod: '',
   });
+
   const handleSubmit = () => {
     const { money, paymentMethod } = formData;
     if (money < minMoney || money > maxMoney) {
@@ -20,19 +21,20 @@ const MoneyDeposit = ({ display, setDisplay }) => {
       return;
     }
     console.log(formData);
-    swal('Nạp tiền thành công!', '', 'success');
+    swal('Ủng hộ tiền thành công!', '', 'success');
   };
+
   return (
     <>
-      <div className="wide-screen" style={{ display: display ? 'block' : 'none' }}>
+      <div className="wide-screen">
         <div className="center" style={{ minHeight: '100vh' }}>
           <div className="WithDrawMoney">
-            <h1>Nạp tiền</h1>
+            <h1>Ủng hộ</h1>
             <input
               type="number"
               name="money"
               onChange={(e) => onInputChange(e, formData, setFormData)}
-              placeholder="Số tiền cần nạp"
+              placeholder="Số tiền muốn ủng hộ"
               min={minMoney}
               max={maxMoney}
             />
@@ -63,4 +65,4 @@ const MoneyDeposit = ({ display, setDisplay }) => {
   );
 };
 
-export default MoneyDeposit;
+export default DonateAction;

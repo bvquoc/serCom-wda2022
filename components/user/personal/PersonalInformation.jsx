@@ -1,6 +1,9 @@
 import Image from 'next/image';
+import { useState } from 'react';
+import UpdateUserInformation from '../../management/UpdateUserInformation';
 
 const PersonalInformation = () => {
+  const [display, setDisplay] = useState(false);
   return (
     <>
       <div>
@@ -10,13 +13,16 @@ const PersonalInformation = () => {
           </div>
           <div className="pi-info">
             <div className="pi-name">Họ và tên: </div>
-            <div className="pi-username">Tên người dùng: </div>
             <div className="pi-email">Email</div>
             <div className="pi-phone">Số điện thoại: </div>
             <div className="pi-address">Địa chỉ: </div>
           </div>
+          <button style={{ marginTop: '1rem' }} onClick={() => setDisplay(true)}>
+            Chỉnh sửa thông tin cá nhân
+          </button>
         </div>
       </div>
+      {display && <UpdateUserInformation setDisplay={setDisplay} />}
     </>
   );
 };

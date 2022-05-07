@@ -68,6 +68,7 @@ const DonatorRegisterForm = ({ display }) => {
           type="text"
           name="address"
           placeholder="Địa chỉ"
+          defaultValue="Địa chỉ"
           onChange={(e) => onInputChange(e, formData, setFormData)}
         />
         <input

@@ -1,10 +1,26 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import SingleLogo from './SingleLogo';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import firebase from '../../libs/firebase';
+import { auth } from '../../libs/firebase';
+import { signOut } from 'firebase/auth';
+import { AuthContext } from '../../contexts/AuthContext';
 
 const NavigationLoggiedIn = () => {
   const [expand, setExpand] = useState(false);
+  const { setLoggedUser } = useContext(AuthContext);
+
+  const handleSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        setLoggedUser(null);
+        console.log('signed out');
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
 
   return (
     <div className="navigation">
@@ -39,12 +55,18 @@ const NavigationLoggiedIn = () => {
         </div>
         <div className="drop-down-content" style={{ display: expand ? 'block' : 'none' }}>
           <Link href={{ pathname: '/user/profile', query: { id: '1', role: 'pns' } }} passHref>
-            <a>Hồ sơ</a>
+            <a>
+              <i className="bi bi-person-circle"></i> Trang cá nhân
+            </a>
           </Link>
           <Link href="/user/statistics" passHref>
-            <a>Thống kê</a>
+            <a>
+              <i className="bi bi-graph-down"></i> Thống kê
+            </a>
           </Link>
-          <a href="#">Đăng xuất</a>
+          <a onClick={handleSignOut}>
+            <i className="bi bi-box-arrow-in-right"></i> Đăng xuất
+          </a>
         </div>
       </div>
     </div>

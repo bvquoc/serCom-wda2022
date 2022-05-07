@@ -1,3 +1,4 @@
+import Footer from '../../components/layout/Footer';
 import Navigation from '../../components/layout/Navigation';
 import MetaData from '../../components/meta/MetaData';
 
@@ -10,6 +11,7 @@ const FAQ = () => {
         <h1>Các câu hỏi thường gặp</h1>
         <p>Hiện tại chưa có câu hỏi nào</p>
       </div>
+      <Footer />
     </>
   );
 };

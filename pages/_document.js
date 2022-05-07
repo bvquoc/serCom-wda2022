@@ -12,7 +12,7 @@ class MyDocument extends Document {
           <meta name="theme-color" content="#ffffff" />
           <link rel="manifest" href="/manifest.json" />
           <link rel="apple-touch-icon" href="/icon-512x512.png" />
-          <link rel="icon" href="icon-512x512.png" />
+          <link rel="icon" href="/icon-512x512.png" />
           <meta name="renderer" content="webkit" />
           <meta property="og:locale" content="vi_VN" />
           <meta property="og:type" content="website" />

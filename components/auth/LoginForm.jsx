@@ -46,7 +46,7 @@ export default function LoginForm() {
     <>
       <MetaData title="Đăng nhập" description="Đăng nhập" />
       <div className="center">
-        <div className="LoginForm">
+        <div className="LoginForm" onKeyPress={(e) => e.key === 'Enter' && handleSubmit()}>
           <h1>Đăng nhập</h1>
           <input
             type="email"

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Privacy from '../docs/Privacy';
 import Terms from '../docs/Terms';
 
-export const Footer = () => {
+const Footer = () => {
   const [displayPrivacy, setDisplayPrivacy] = useState(false);
   const [displayTerms, setDisplayTerms] = useState(false);
   return (
@@ -56,3 +56,5 @@ export const Footer = () => {
     </>
   );
 };
+
+export default Footer;
