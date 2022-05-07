@@ -15,6 +15,7 @@ const DonatorRegisterForm = ({ display }) => {
     branch: '',
     date: '',
   });
+  const [anonymous, setAnonymous] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -37,6 +38,7 @@ const DonatorRegisterForm = ({ display }) => {
     console.log(formData);
     swal('Đăng kí thành công!', '', 'success');
   };
+  console.log(anonymous);
   return (
     <>
       <div className="confirm" style={{ display: display ? 'block' : 'none' }}>
@@ -73,7 +75,12 @@ const DonatorRegisterForm = ({ display }) => {
           placeholder="Công việc hiện tại"
           onChange={(e) => onInputChange(e, formData, setFormData)}
         />
-        <input type="checkbox" name="anonymous" />Ẩn danh tính
+        <label htmlFor="anonymous" className='flex-space-between'>
+          <span className='center'>Ẩn danh tính</span>
+          <i className={`bi bi-toggle-${!anonymous ? "off" : "on"}`}></i>
+        </label>
+        <input type="checkbox" onChange={(e) => setAnonymous(e.target.checked)} name="anonymous" id="anonymous"/>
+
         <h3>Thông tin thanh toán</h3>
         <input
           type="text"

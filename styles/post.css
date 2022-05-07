@@ -4,6 +4,10 @@ main {
   gap: 1rem;
 }
 
+.AllPosts {
+  margin: 2rem 0;
+}
+
 .post-container {
   width: 100%;
 }
@@ -11,7 +15,7 @@ main {
 .PostDetail {
   width: 100%;
   padding: 1rem;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   background-color: var(--primaryColor);
 }
@@ -78,7 +82,6 @@ main {
   display: flex;
 }
 
-
 .high-rate-post {
   min-width: 300px;
   max-width: fit-content;
@@ -104,16 +107,50 @@ main {
   top: 1rem;
 }
 
-.grid-4-6 {
-  display: grid;
-  grid-template-columns: 40% 60%;
-  gap: 1rem;
+.post-manage-btn {
+  padding: 0 1rem;
+  opacity: 0.7;
 }
 
-.create-post-btn {
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-  background-color: var(--tertiaryColor);
-  padding: 0 1rem;
+.post-manage-btn:hover {
+  opacity: 1;
+}
+
+.CreatePostLayout {
+  background-color: var(--primaryColor);
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.CreatePostLayout input {
+  height: auto;
+  width: 97%;
+  border: none;
+  border-radius: var(--borderRadius);
+  background-color: rgba(220, 220, 220, 0.485);
+  cursor: pointer;
+}
+
+.CreatePostLayout input:hover {
+  background-color: rgba(220, 220, 220, 0.85);
+}
+
+.create-post-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid black;
+  margin-right: 1rem;
+}
+
+.CreatePostLayout button {
+  padding: 0 2rem;
+}
+
+.CreatePost {
+  width: 600px;
+  background-color: var(--secondaryColor);
+  padding: 2rem;
+  border-radius: 10px;
 }

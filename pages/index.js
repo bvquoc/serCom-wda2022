@@ -1,4 +1,4 @@
-import CreatePostButton from '../components/layout/CreatePostButton';
+import CreatePostLayout from '../components/layout/CreatePostLayout';
 import { Footer } from '../components/layout/Footer';
 import Navigation from '../components/layout/Navigation';
 import NavigationLoggiedIn from '../components/layout/NavigationLoggedIn';
@@ -6,15 +6,16 @@ import TopDonators from '../components/layout/TopDonators';
 import AllPosts from '../components/post/AllPosts';
 
 export default function Home() {
-  
   return (
     <>
       <NavigationLoggiedIn />
+      <div style={{width: "70%"}}>
+        <CreatePostLayout />
+      </div>
       <main>
         <AllPosts />
         <TopDonators />
       </main>
-      <CreatePostButton />
       <Footer />
     </>
   );

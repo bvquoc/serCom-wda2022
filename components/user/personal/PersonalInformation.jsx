@@ -3,16 +3,18 @@ import Image from 'next/image';
 const PersonalInformation = () => {
   return (
     <>
-      <div className="PersonalInformation">
-        <div className="pi-img center">
-          <Image src="/icon-512x512.png" alt="Avatar" width={512} height={512} objectFit="contain" priority />
-        </div>
-        <div className="pi-info">
-          <div className="pi-name">Họ và tên: </div>
-          <div className="pi-username">Tên người dùng: </div>
-          <div className="pi-email">Email</div>
-          <div className="pi-phone">Số điện thoại: </div>
-          <div className="pi-address">Địa chỉ: </div>
+      <div>
+        <div className="PersonalInformation">
+          <div className="pi-img center">
+            <Image src="/icon-512x512.png" alt="Avatar" width={512} height={512} objectFit="contain" priority />
+          </div>
+          <div className="pi-info">
+            <div className="pi-name">Họ và tên: </div>
+            <div className="pi-username">Tên người dùng: </div>
+            <div className="pi-email">Email</div>
+            <div className="pi-phone">Số điện thoại: </div>
+            <div className="pi-address">Địa chỉ: </div>
+          </div>
         </div>
       </div>
     </>

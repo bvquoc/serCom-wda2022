@@ -20,8 +20,6 @@ const Wallet = () => {
       setId(router.query.id);
     }
   }, [router.isReady]);
-  console.log(router);
-  console.log(role);
   return (
     <>
       <SingleLogo />

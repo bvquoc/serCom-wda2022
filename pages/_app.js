@@ -10,6 +10,7 @@ import '../styles/docs.css'
 import '../styles/donators.css'
 import '../styles/personalInformation.css'
 import '../styles/responsive.css'
+import '../styles/flex-grid.css'
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;

@@ -1,38 +1,3 @@
-.grid-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-
-.flex-default {
-  display: flex;
-}
-
-.flex-space-between {
-  display: flex;
-  justify-content: space-between;
-}
-
-.flex-space-around{
-    display: flex;
-    justify-content: space-around;
-}
-
-.flex-space-evenly{
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.flex-default i {
-  font-size: 34px;
-  margin-left: 1rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.flex-default i:hover {
-  transform: scale(1.05);
-}
 
 .MoneyInWallet,
 .MoneyReceived {

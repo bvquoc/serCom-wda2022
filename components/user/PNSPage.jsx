@@ -1,4 +1,5 @@
 import React from 'react'
+import CreatePostLayout from '../layout/CreatePostLayout';
 import UserPosts from '../post/UserPosts';
 import PersonalInformation from './personal/PersonalInformation';
 
@@ -6,10 +7,12 @@ export const PNSPage = () => {
   return (
     <>
       <div className='PNSPage'>
-        <h1>Hồ sơ</h1>
         <div className='grid-4-6'>
           <PersonalInformation />
+          <div>
+          <CreatePostLayout />
           <UserPosts />
+          </div>
         </div>
       </div>
     </>
