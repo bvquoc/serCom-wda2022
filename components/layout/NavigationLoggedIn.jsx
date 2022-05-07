@@ -1,20 +1,21 @@
+import { signOut } from 'firebase/auth';
 import Image from 'next/image';
 import Link from 'next/link';
-import SingleLogo from './SingleLogo';
-import { useState, useContext } from 'react';
-import firebase from '../../libs/firebase';
-import { auth } from '../../libs/firebase';
-import { signOut } from 'firebase/auth';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
+import { auth } from '../../libs/firebase';
+import SingleLogo from './SingleLogo';
+import firebase from '../../libs/firebase';
 
 const NavigationLoggiedIn = () => {
   const [expand, setExpand] = useState(false);
-  const { setLoggedUser } = useContext(AuthContext);
-
+  const { loggedUser, setLoggedUser, setUserId } = useContext(AuthContext);
+  console.log(firebase);
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
         setLoggedUser(null);
+        setUserId(null);
         console.log('signed out');
       })
       .catch((error) => {
@@ -44,7 +45,7 @@ const NavigationLoggiedIn = () => {
           </Link>
         </div>
         <div className="nav-item">
-          <Link href={{ pathname: '/user/wallet', query: { id: '1', role: 'pns' } }} passHref>
+          <Link href={{ pathname: '/user/wallet', query: { id: loggedUser?.uid, role: 'donator' } }} passHref>
             <a className="wallet">Ví của tôi</a>
           </Link>
         </div>
@@ -54,7 +55,7 @@ const NavigationLoggiedIn = () => {
           </div>
         </div>
         <div className="drop-down-content" style={{ display: expand ? 'block' : 'none' }}>
-          <Link href={{ pathname: '/user/profile', query: { id: '1', role: 'pns' } }} passHref>
+          <Link href={{ pathname: '/user/profile', query: { id: loggedUser?.uid, role: 'donator' } }} passHref>
             <a>
               <i className="bi bi-person-circle"></i> Trang cá nhân
             </a>

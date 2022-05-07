@@ -1,4 +1,3 @@
-import { onAuthStateChanged } from 'firebase/auth';
 import { useContext } from 'react';
 import CreatePostLayout from '../components/layout/CreatePostLayout';
 import Footer from '../components/layout/Footer';
@@ -9,13 +8,9 @@ import WelcomePage from '../components/layout/WelcomePage';
 import MetaData from '../components/meta/MetaData';
 import AllPosts from '../components/post/AllPosts';
 import { AuthContext } from '../contexts/AuthContext';
-import { auth } from '../libs/firebase';
 
 export default function Home() {
-  const {loggedUser, setLoggedUser} = useContext(AuthContext);
-  onAuthStateChanged(auth, (user) => {
-    setLoggedUser(user);
-  });
+  const { loggedUser } = useContext(AuthContext);
   console.log(loggedUser);
   return (
     <>

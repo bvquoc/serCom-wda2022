@@ -7,7 +7,7 @@ const DonateAction = ({setDisplay}) => {
 
   const [formData, setFormData] = useState({
     money: 0,
-    paymentMethod: '',
+    paymentMethod: "on",
   });
 
   const handleSubmit = () => {
@@ -42,13 +42,14 @@ const DonateAction = ({setDisplay}) => {
             <label htmlFor="payment" className="flex-space-around">
               <div className="center">
                 <i className="bi bi-bank" style={{ fontStyle: 'normal', fontWeight: 500 }}>
-                  Nạp tiền từ ngân hàng
+                  Thanh toán qua ngân hàng
                 </i>
               </div>
               <input
                 type="radio"
                 name="paymentMethod"
                 id="payment"
+                defaultChecked
                 onChange={(e) => onInputChange(e, formData, setFormData)}
               />
             </label>

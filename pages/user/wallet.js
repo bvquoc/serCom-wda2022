@@ -1,13 +1,13 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import SingleLogo from '../../components/layout/SingleLogo';
+import MetaData from '../../components/meta/MetaData';
+import Loading from '../../components/onLoad/Loading';
+import MoneyDeposit from '../../components/user/wallet/MoneyDeposit';
 import MoneyDonated from '../../components/user/wallet/MoneyDonated';
 import MoneyInWallet from '../../components/user/wallet/MoneyInWallet';
 import MoneyReceived from '../../components/user/wallet/MoneyReceived';
-import Loading from '../../components/onLoad/Loading';
 import WithDrawMoney from '../../components/user/wallet/WithDrawMoney';
-import MoneyDeposit from '../../components/user/wallet/MoneyDeposit';
-import MetaData from '../../components/meta/MetaData';
 
 const Wallet = () => {
   const [id, setId] = useState(null);
@@ -21,6 +21,7 @@ const Wallet = () => {
       setId(router.query.id);
     }
   }, [router.isReady]);
+  console.log(role);
   return (
     <>
       <MetaData title="Ví của tôi - " description="Ví của tôi" />
@@ -29,14 +30,20 @@ const Wallet = () => {
         <h1>
           <i className="bi bi-wallet2" style={{ fontSize: '34px' }}></i> Ví của tôi
         </h1>
-        <div className="flex-default center">
-          <i className="bi bi-cash-coin" title="Rút tiền" onClick={() => setDisplay(true)}></i>
-          {role !== 'pns' && role !== null ? (
-            <i className="bi bi-info-circle" title="Thông tin người ủng hộ"></i>
+        <div className="flex-default">
+          <div className="center">
+            <i className="bi bi-cash-coin" title="Rút tiền" onClick={() => setDisplay(true)}></i>
+          </div>
+          {role === 'pns' ? (
+            <div className="center">
+              <i className="bi bi-info-circle" title="Thông tin người ủng hộ"></i>
+            </div>
           ) : (
-            <button className="deposit-btn" onClick={() => setDeposit(true)}>
-              Nạp tiền
-            </button>
+            <div className="center">
+              <button className="deposit-btn" onClick={() => setDeposit(true)}>
+                Nạp tiền
+              </button>
+            </div>
           )}
         </div>
       </div>
