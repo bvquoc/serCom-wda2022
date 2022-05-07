@@ -2,6 +2,7 @@ import Link from 'next/link';
 
 import { useState } from 'react';
 import SingleLogo from '../../../components/layout/SingleLogo';
+import MetaData from '../../../components/meta/MetaData';
 import DonatorRegisterForm from '../../../components/user/DonatorRegisterForm';
 
 const DonatorRegister = () => {
@@ -9,6 +10,7 @@ const DonatorRegister = () => {
 
   return (
     <>
+      <MetaData title="Trở thành người ủng hộ" description="Đăng kí trở thành Người ủng hộ" />
       <SingleLogo />
       <div className="center">
         <div className="DonatorRegister">

@@ -72,6 +72,7 @@ label[for='anonymous'] {
   background-color: var(--secondaryColor);
   padding: 0.7rem 1rem;
   border-radius: var(--borderRadius);
+  cursor: pointer;
   font-weight: bold;
 }
 
@@ -86,6 +87,7 @@ input[name='target'] {
 label[for='target'] {
   background-color: var(--tertiaryColor);
   padding: 0.7rem 1rem;
+  cursor: pointer;
   border-radius: var(--borderRadius);
   font-weight: bold;
 }
@@ -110,7 +112,6 @@ input[name="post-image"]{
 }
 
 input[name="post-image"]::-webkit-file-upload-button {
-  /* visibility: hidden; */
   display: none;
 }
 
@@ -119,4 +120,18 @@ label[for="post-image"] {
   margin-top: 1rem;
   padding: 0 1rem;
   border-radius: var(--borderRadius);
+}
+
+input[name='loginSave'] {
+  appearance: none;
+}
+
+label[for='loginSave'] {
+  font-weight: bold;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+label[for='loginSave'] > i::before {
+  font-size: 1.5rem;
 }

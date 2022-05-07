@@ -1,0 +1,31 @@
+.welcome-title {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 130%;
+  text-align: center;
+  margin: 6rem 1rem 0 1rem;
+}
+
+.welcome-title::before {
+  content: '“';
+}
+
+.welcome-title::after {
+  content: '”';
+}
+
+.author {
+  text-align: center;
+  opacity: 0.7;
+  margin-bottom: 3rem;
+}
+
+.author + h3{
+  text-align: center;
+}
+
+.start-btn {
+  margin-top: 3rem;
+  background-color: var(--tertiaryColor);
+  padding: 0 2rem;
+}

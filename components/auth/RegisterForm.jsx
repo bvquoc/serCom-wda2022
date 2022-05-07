@@ -7,6 +7,7 @@ import { auth } from '../../libs/firebase';
 import { validate } from 'email-validator';
 import { onInputChange } from '../../libs';
 import Loading from '../onLoad/Loading';
+import MetaData from '../meta/MetaData';
 
 export default function RegisterForm() {
   const [formData, setFormData] = useState({
@@ -50,10 +51,26 @@ export default function RegisterForm() {
   if (user) return <h2>Đang chuyển bạn đến trang chính...</h2>;
   return (
     <>
+      <MetaData title="Đăng ký" description="Đăng ký" />
       <div className="center">
         <div className="RegisterForm">
           <h1>Đăng kí</h1>
+          <input
+            type="text"
+            value={formData.fullName}
+            onChange={(e) => onInputChange(e, formData, setFormData)}
+            placeholder="Họ và tên"
+            name="fullName"
+          />
 
+          <input
+            type="tel"
+            value={formData.telephone}
+            onChange={(e) => onInputChange(e, formData, setFormData)}
+            placeholder="Số điện thoại"
+            name="telephone"
+          />
+          
           <input
             placeholder="Email"
             type="email"
@@ -76,22 +93,6 @@ export default function RegisterForm() {
             onChange={(e) => onInputChange(e, formData, setFormData)}
             placeholder="Xác nhận mật khẩu"
             name="confirmPassword"
-          />
-
-          <input
-            type="text"
-            value={formData.fullName}
-            onChange={(e) => onInputChange(e, formData, setFormData)}
-            placeholder="Họ và tên"
-            name="fullName"
-          />
-
-          <input
-            type="tel"
-            value={formData.telephone}
-            onChange={(e) => onInputChange(e, formData, setFormData)}
-            placeholder="Số điện thoại"
-            name="telephone"
           />
 
           <button className="register-btn" onClick={handleSubmit}>

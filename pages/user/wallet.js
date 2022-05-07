@@ -7,6 +7,7 @@ import MoneyReceived from '../../components/user/wallet/MoneyReceived';
 import Loading from '../../components/onLoad/Loading';
 import WithDrawMoney from '../../components/user/wallet/WithDrawMoney';
 import MoneyDeposit from '../../components/user/wallet/MoneyDeposit';
+import MetaData from '../../components/meta/MetaData';
 
 const Wallet = () => {
   const [id, setId] = useState(null);
@@ -22,6 +23,7 @@ const Wallet = () => {
   }, [router.isReady]);
   return (
     <>
+      <MetaData title="Ví của tôi - " description="Ví của tôi" />
       <SingleLogo />
       <div className="flex-space-between">
         <h1>
@@ -32,7 +34,9 @@ const Wallet = () => {
           {role !== 'pns' && role !== null ? (
             <i className="bi bi-info-circle" title="Thông tin người ủng hộ"></i>
           ) : (
-            <button className="deposit-btn" onClick={() => setDeposit(true)}>Nạp tiền</button>
+            <button className="deposit-btn" onClick={() => setDeposit(true)}>
+              Nạp tiền
+            </button>
           )}
         </div>
       </div>

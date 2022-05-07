@@ -1,0 +1,61 @@
+.PostManageModal {
+  width: 80%;
+  background-color: var(--secondaryColor);
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.edit-btn,
+.delete-btn {
+  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  margin-left: 1rem;
+}
+
+.edit-btn {
+  background-color: var(--quaternaryColor);
+  color: var(--contrastTextColor);
+}
+
+.delete-btn {
+  background-color: transparent;
+  color: red;
+}
+
+.DeletePost{
+  background-color: var(--quaternaryColor);
+  color: var(--contrastTextColor);
+  border-radius: 5px;
+  padding: 2rem;
+}
+
+.delete-confirm-btn{
+  background-color: red;
+  color: white;
+  padding: 0 1rem;
+  margin-left: 1rem;
+}
+
+.cancel-btn{
+  background-color: var(--tertiaryColor);
+  padding: 0 1rem;
+}
+
+.UpdatePost{
+  background-color: var(--quaternaryColor);
+  padding: 2rem;
+  width: 80%;
+  border-radius: 10px;
+}
+
+.UpdatePost > h2, .UpdatePost > div > div > span{
+  color: var(--contrastTextColor)
+}
+
+.edit-confirm-btn{
+  margin-top: 2rem;
+  background-color: var(--tertiaryColor);
+  padding: 0 1rem;
+}

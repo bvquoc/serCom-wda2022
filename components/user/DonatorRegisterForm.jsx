@@ -54,6 +54,7 @@ const DonatorRegisterForm = ({ display }) => {
           type="tel"
           name="telephone"
           placeholder="Số điện thoại"
+          defaultValue="11111"
           onChange={(e) => onInputChange(e, formData, setFormData)}
         />
         <input

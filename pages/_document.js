@@ -18,10 +18,7 @@ class MyDocument extends Document {
           <meta property="og:type" content="website" />
           <meta property="og:image:width" content="500" />
           <meta property="og:image:height" content="500" />
-          <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"
-          ></link>
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
         </Head>
         <body>
           <Main />

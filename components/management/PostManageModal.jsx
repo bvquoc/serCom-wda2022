@@ -1,8 +1,19 @@
+import ShortenedPost from "../post/ShortenedPost";
 
-const PostManageModal = ({setDisplay}) => {
+const PostManageModal = ({ setDisplay }) => {
   return (
-    <div>PostManageModal</div>
-  )
-}
+    <>
+      <div className="wide-screen">
+        <i className="bi bi-x-lg" onClick={() => setDisplay(false)}></i>
+        <div className="center" style={{minHeight: "100vh"}}>
+          <div className="PostManageModal">
+            <h2>Quản lí bài viết</h2>
+            <ShortenedPost />
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
 
-export default PostManageModal
+export default PostManageModal;

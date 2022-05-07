@@ -6,7 +6,6 @@ export const PostDetail = () => {
   const handleDonate = () => {
     swal('Successful! Thank you for your donation!', '', 'success');
   };
-
   return (
     <>
       <div className="PostDetail">
@@ -16,7 +15,7 @@ export const PostDetail = () => {
               <Image alt="avatar" src="/icon-512x512.png" width={512} height={512} objectFit="contain" />
             </div>
             <div className="post-user-info-name">
-              <Link href="/user/[slug]">
+              <Link href={{pathname: "/user/profile", query: {id: 1, role: "pns"}}}>
                 <a>Họ và tên</a>
               </Link>
               <cite>đăng lúc time</cite>

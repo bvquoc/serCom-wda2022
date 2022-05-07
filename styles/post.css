@@ -154,3 +154,9 @@ main {
   padding: 2rem;
   border-radius: 10px;
 }
+
+.ShortenedPost{
+  padding: 1rem;
+  background-color: var(--primaryColor);
+  border-radius: 10px;
+}
