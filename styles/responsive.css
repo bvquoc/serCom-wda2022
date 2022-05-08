@@ -39,7 +39,7 @@
   .r-lr {
     display: none;
   }
-  .r-wd > a{
+  .r-wd > a {
     padding: 0.6rem 1rem !important;
   }
   .navStick {
@@ -51,6 +51,10 @@
     left: 0;
     background-color: var(--secondaryColor);
     z-index: 10;
+  }
+
+  .navStick .flex-nav-item .nav-item a {
+    padding: 0.6rem 1rem;
   }
 
   .r-wallet {
@@ -65,8 +69,8 @@
     grid-auto-flow: dense;
   }
 
-  .TopDonators{
-      grid-row: 1;
+  .TopDonators {
+    grid-row: 1;
   }
 
   .r-nav {
@@ -74,7 +78,7 @@
   }
 
   .Profile > .grid-4-6 {
-      grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
   }
 }
 
@@ -94,7 +98,7 @@
   .UpdateUserInformation {
     width: 100%;
   }
-  
+
   .nav-item > a {
     padding: 0;
   }
