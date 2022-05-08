@@ -55,7 +55,7 @@ const NavigationLoggiedIn = () => {
           </div>
         </div>
         <div className="drop-down-content" style={{ display: expand ? 'block' : 'none' }}>
-          <Link href={{ pathname: '/user/profile', query: { id: loggedUser?.uid, role: 'donator' } }} passHref>
+          <Link href={{ pathname: '/user/profile', query: { id: loggedUser?.uid } }} passHref>
             <a>
               <i className="bi bi-person-circle"></i> Trang cá nhân
             </a>
