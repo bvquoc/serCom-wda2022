@@ -1,16 +1,19 @@
-import React from 'react';
+import MetaData from '../meta/MetaData';
 
 const Loading = () => {
   return (
-    <div className="wide-screen">
-      <div className="center" style={{minHeight: "100vh"}}>
-        <div className="balls">
-          <div></div>
-          <div></div>
-          <div></div>
+    <>
+      <MetaData title="Đang tải..." />
+      <div className="wide-screen">
+        <div className="center" style={{ minHeight: '100vh' }}>
+          <div className="flex-space-around" style={{ gap: '2rem' }}>
+            <div className="loading"></div>
+            <div className="loading"></div>
+            <div className="loading"></div>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

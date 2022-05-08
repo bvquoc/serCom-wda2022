@@ -72,6 +72,14 @@
   border-radius: 10px;
 }
 
+.post-detail-content-img img{
+  cursor: pointer;
+}
+
+.post-detail-content-img img:hover{
+  opacity: 0.7;
+}
+
 .edit-confirm-btn{
   margin-top: 2rem;
   background-color: var(--tertiaryColor);

@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import CreatePostLayout from '../../components/layout/CreatePostLayout';
 import Footer from '../../components/layout/Footer';
 import SingleLogo from '../../components/layout/SingleLogo';
@@ -7,16 +7,23 @@ import MetaData from '../../components/meta/MetaData';
 import PersonalInformation from '../../components/user/personal/PersonalInformation';
 import RolesPage from '../../components/user/RolesPage';
 import { AuthContext } from '../../contexts/AuthContext';
+import { getAllUsers } from '../../service';
 
 const Profile = () => {
   const { loggedUser } = useContext(AuthContext);
 
   const router = useRouter();
+  const [allUsersId, setAllUsersId] = useState([]);
   useEffect(() => {
-    
-  }, [router.isReady]);
- const role = router.query.role;
-
+    let mounted = true;
+    if (mounted) {
+      getAllUsers().then((users) => users.map((user) => setAllUsersId((prev) => [...prev, user.id])));
+    }
+    return () => {
+      mounted = false;
+    };
+  }, []);
+  console.log('allUsersId: ', allUsersId);
   return (
     <>
       <MetaData title="Trang cá nhân - " description="Trang cá nhân" />
@@ -24,10 +31,10 @@ const Profile = () => {
 
       <div className="Profile">
         <div className="grid-4-6">
-          <PersonalInformation />
+          <PersonalInformation allUsersId={allUsersId} />
           <div>
             <CreatePostLayout />
-            {loggedUser && <RolesPage role={role} />}
+            {loggedUser && <RolesPage />}
           </div>
         </div>
       </div>

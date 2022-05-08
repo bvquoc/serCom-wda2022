@@ -9,13 +9,12 @@ import SingleLogo from './SingleLogo';
 
 const NavigationLoggiedIn = () => {
   const [expand, setExpand] = useState(false);
-  const { loggedUser, setLoggedUser, setUserId } = useContext(AuthContext);
+  const { loggedUser, setLoggedUser } = useContext(AuthContext);
   const handleSignOut = () => {
     swal('Đã đăng xuất!', '', 'success');
     signOut(auth)
       .then(() => {
         setLoggedUser(null);
-        setUserId(null);
         console.log('signed out');
       })
       .catch((error) => {
@@ -45,7 +44,7 @@ const NavigationLoggiedIn = () => {
           </Link>
         </div>
         <div className="nav-item r-nav">
-          <Link href={{ pathname: '/user/wallet', query: { id: loggedUser?.uid } }} passHref>
+          <Link href={{pathname: "/user/wallet", query: loggedUser.uid}} passHref>
             <a className="wallet">Ví của tôi</a>
           </Link>
         </div>

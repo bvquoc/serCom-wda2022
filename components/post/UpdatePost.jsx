@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import Image from 'next/image';
+import { useState } from 'react';
 import swal from 'sweetalert';
 const UpdatePost = ({ setDisplay }) => {
   // check if target ref is checked, the target will be displayed

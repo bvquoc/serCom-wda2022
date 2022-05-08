@@ -2,10 +2,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import DonateAction from '../layout/DonateAction';
+import ImagePopUp from '../layout/ImagePopUp';
 
-const PostDetail = ({hrefId}) => {
+const PostDetail = ({ hrefId }) => {
   const [display, setDisplay] = useState(false);
-
+  const [popUpImage, setPopUpImage] = useState(false);
   return (
     <>
       <div className="PostDetail">
@@ -15,7 +16,7 @@ const PostDetail = ({hrefId}) => {
               <Image alt="avatar" src="/icon-512x512.png" width={512} height={512} objectFit="contain" />
             </div>
             <div className="post-user-info-name">
-              <Link href={{ pathname: '/user/profile', query: { id: hrefId} }}>
+              <Link href={{ pathname: '/user/profile', query: { id: hrefId } }}>
                 <a>Họ và tên</a>
               </Link>
               <cite>đăng lúc time</cite>
@@ -33,7 +34,15 @@ const PostDetail = ({hrefId}) => {
           <h2>Tiêu đề</h2>
           <p>Mô tả</p>
           <div className="post-detail-content-img center">
-            <Image alt="avatar" src="/icon-512x512.png" width={256} height={256} objectFit="contain" />
+            <Image
+              alt="image"
+              src="/icon-512x512.png"
+              width={256}
+              height={256}
+              objectFit="contain"
+              quality={75}
+              onClick={() => setPopUpImage(true)}
+            />
           </div>
         </div>
         <div className="post-detail-bottom">
@@ -51,6 +60,7 @@ const PostDetail = ({hrefId}) => {
         </button>
       </div>
       {display && <DonateAction setDisplay={setDisplay} />}
+      {popUpImage && <ImagePopUp imgURL={'/icon-512x512.png'} setDisplay={setPopUpImage} />}
     </>
   );
 };

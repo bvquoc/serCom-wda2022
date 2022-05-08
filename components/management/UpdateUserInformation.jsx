@@ -9,6 +9,7 @@ const UpdateUserInformation = ({ setDisplay }) => {
     telephone: '',
     address: '',
   });
+
   const handleSubmit = () => {
     const { fullName, email, telephone, address } = formData;
     if (!fullName || !email || !telephone || !address) {
