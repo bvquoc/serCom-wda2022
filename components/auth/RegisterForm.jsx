@@ -29,7 +29,7 @@ export default function RegisterForm() {
       }, 3000);
     }
     if (error) swal('Lỗi!', error.message, 'error');
-  }, [user, error]);
+  }, [user, error,router]);
 
   const handleSubmit = () => {
     const { email, password, confirmPassword, fullName, telephone } = formData;

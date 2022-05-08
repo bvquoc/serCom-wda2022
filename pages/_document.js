@@ -9,7 +9,7 @@ class MyDocument extends Document {
     return (
       <Html lang="vi">
         <Head>
-          <meta name="theme-color" content="#ffffff" />
+          <meta name="theme-color" content="#FFDD00" />
           <link rel="manifest" href="/manifest.json" />
           <link rel="apple-touch-icon" href="/icon-512x512.png" />
           <link rel="icon" href="/icon-512x512.png" />

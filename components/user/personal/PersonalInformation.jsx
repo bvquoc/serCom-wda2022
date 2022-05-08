@@ -22,7 +22,7 @@ const PersonalInformation = ({ allUsersId }) => {
     return () => {
       mounted = false;
     };
-  }, [router.isReady]);
+  }, [router.isReady,router.query.id]);
   // console.log(user);
   if (user?.length === 0) return <Loading />;
   if (!allUsersId.includes(user?.id)) {

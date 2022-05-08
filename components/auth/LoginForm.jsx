@@ -25,7 +25,7 @@ export default function LoginForm() {
       router.push('/');
     }
     if (error) swal('Lỗi!', error.message, 'error');
-  }, [user, error]);
+  }, [user, error, router]);
 
   const { save, setSave } = useContext(AuthContext);
   console.log(save);
