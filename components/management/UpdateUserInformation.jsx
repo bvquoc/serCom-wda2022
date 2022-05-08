@@ -31,6 +31,7 @@ const UpdateUserInformation = ({ setDisplay }) => {
     if (!fullName || !email || !telephone || !address) {
       return swal('', 'Vui lòng điền đầy đủ thông tin', 'warning');
     }
+    swal('', 'Cập nhật thành công', 'success');
     console.log(formData);
   };
 

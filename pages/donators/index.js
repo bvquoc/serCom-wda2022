@@ -1,12 +1,17 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import DonatorList from '../../components/layout/DonatorList';
 import Footer from '../../components/layout/Footer';
 import Navigation from '../../components/layout/Navigation';
+import NavigationLoggedIn from '../../components/layout/NavigationLoggedIn';
 import MetaData from '../../components/meta/MetaData';
-import { getAllUsers } from '../../service';
 import Loading from '../../components/onLoad/Loading';
+import { AuthContext } from '../../contexts/AuthContext';
+import { getAllUsers } from '../../service';
 
 const Donators = () => {
+
+  const {loggedUser} = useContext(AuthContext);
+
   const [allUsers, setAllUsers] = useState(null);
   const [searchValue, setSearchValue] = useState('');
   useEffect(() => {
@@ -21,14 +26,14 @@ const Donators = () => {
   return (
     <>
       <MetaData title="Người ủng hộ" description="Danh sách người ủng hộ" />
-      <Navigation />
+      {loggedUser ? <NavigationLoggedIn /> :<Navigation />}
       <div className="Donators">
         <h1>Danh sách Người ủng hộ</h1>
         <div className="flex-space-between">
           <div className="center">
             <i className="bi bi-gift" style={{ fontSize: '2rem', marginRight: '1rem' }}></i>
           </div>
-          <div className="flex-default">
+          <div className="flex-default search_bar">
             <input type="text" placeholder="Tìm kiếm" onChange={(e) => setSearchValue(e.target.value)} />
             <div className="center" style={{ marginLeft: '1rem' }}>
               <i className="bi bi-search"></i>

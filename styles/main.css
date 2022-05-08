@@ -37,3 +37,31 @@
 .Donators{
   min-height: 50vh;
 }
+
+.welcomepage_img{
+  width: 100%;
+}
+
+.welcomepage_desc{
+  text-align: right;
+}
+
+.welcomepage_desc > div > div > h1, .welcomepage_desc > div > div > a > h1{
+  width: fit-content;
+  background-color: var(--tertiaryColor);
+  padding: 1rem;
+}
+
+.welcomepage_desc > div > div > h2{
+  width: fit-content;
+  background-color: var(--quaternaryColor);
+  padding: 1rem;
+  color: var(--contrastTextColor);
+}
+
+.r-rg{
+  background-color: var(--secondaryColor);
+  padding: 1rem;
+  border-radius: 10px;
+  border: 4px dashed rgba(0, 0, 0, 0.416);
+}

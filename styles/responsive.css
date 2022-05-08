@@ -51,6 +51,7 @@
     left: 0;
     background-color: var(--secondaryColor);
     z-index: 10;
+    border-top: 1px solid black;
   }
 
   .navStick .flex-nav-item .nav-item a {
@@ -79,6 +80,24 @@
 
   .Profile > .grid-4-6 {
     grid-template-columns: 1fr;
+  }
+
+  .r-rg{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .r-rg h1{
+    font-size: 1.4rem;
+  }
+
+
+  .r-rg .center > div{
+    display: grid;
+    place-items: center;
+  }
+
+  .r-rg h2{
+    font-size: 1rem;
   }
 }
 

@@ -13,7 +13,7 @@ body {
   min-height: 100vh;
 }
 
-body {
+body{
   margin: 1rem min(10%, 100% - 3rem);
 }
 
