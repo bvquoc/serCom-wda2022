@@ -18,11 +18,11 @@ export default function Home() {
       {loggedUser ? <NavigationLoggiedIn /> : <Navigation />}
       {loggedUser ? (
         <>
-          <div style={{ width: '70%' }}>
-            <CreatePostLayout />
-          </div>
           <main>
-            <AllPosts />
+            <div>
+              <CreatePostLayout />
+              <AllPosts />
+            </div>
             <TopDonators />
           </main>
         </>

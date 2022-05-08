@@ -7,7 +7,7 @@ const MoneyDeposit = ({ display, setDisplay }) => {
 
   const [formData, setFormData] = useState({
     money: 0,
-    paymentMethod: '',
+    paymentMethod: 'on',
   });
   const handleSubmit = () => {
     const { money, paymentMethod } = formData;
@@ -47,6 +47,7 @@ const MoneyDeposit = ({ display, setDisplay }) => {
                 type="radio"
                 name="paymentMethod"
                 id="payment"
+                defaultChecked
                 onChange={(e) => onInputChange(e, formData, setFormData)}
               />
             </label>

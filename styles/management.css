@@ -1,8 +1,12 @@
 .PostManageModal {
   width: 80%;
-  background-color: var(--secondaryColor);
+  background-color: var(--primaryColor);
   padding: 2rem;
   border-radius: 10px;
+}
+
+.CreatePostLayout{
+  width: 70%;
 }
 
 .edit-btn,
@@ -11,17 +15,18 @@
   width: 40px;
   height: 40px;
   padding: 0;
-  margin-left: 1rem;
-}
-
-.edit-btn {
-  background-color: var(--quaternaryColor);
-  color: var(--contrastTextColor);
-}
-
-.delete-btn {
   background-color: transparent;
-  color: red;
+}
+
+
+.edit-btn > i{
+  font-size: 1.5rem;
+  color: var(--quaternaryColor);
+}
+
+.delete-btn > i {
+  font-size: 1.5rem;
+  color: rgb(255, 81, 81)
 }
 
 .DeletePost{
@@ -61,11 +66,18 @@
   color: var(--contrastTextColor)
 }
 
+.post-detail-content-img{
+  background-color: var(--secondaryColor);
+  margin-top: 1rem;
+  border-radius: 10px;
+}
+
 .edit-confirm-btn{
   margin-top: 2rem;
   background-color: var(--tertiaryColor);
   padding: 0 1rem;
 }
+
 
 .UpdateUserInformation{
   width: 80%;

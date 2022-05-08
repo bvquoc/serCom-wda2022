@@ -73,7 +73,7 @@ export const CreatePost = ({ setDisplay }) => {
                   max="10000000000"
                   onChange={(e) => onInputChange(e, formData, setFormData)}
                 />
-                <div className="flex-space-between">
+                <div className="flex-space-between r-date">
                   <div>
                     <span>Bắt đầu từ</span>
                     <input type="date" name="dateStart" onChange={(e) => onInputChange(e, formData, setFormData)} />
@@ -86,12 +86,12 @@ export const CreatePost = ({ setDisplay }) => {
               </>
             )}
             <label htmlFor="post-image" className="flex-space-between">
-              <span className="center">
+              <div className="center">
                 <b>Tải ảnh lên</b>
-              </span>
-              <div className="flex-default center">
+              </div>
+              <div className="flex-default">
                 <input type="file" name="post-image" id="post-image" onChange={(e) => console.log(e.target.files[0].name)} />
-                <div>
+                <div className='center'>
                   <i className="bi bi-upload"></i>
                 </div>
               </div>

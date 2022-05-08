@@ -2,16 +2,16 @@ import { signOut } from 'firebase/auth';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useContext, useState } from 'react';
+import swal from 'sweetalert';
 import { AuthContext } from '../../contexts/AuthContext';
 import { auth } from '../../libs/firebase';
 import SingleLogo from './SingleLogo';
-import firebase from '../../libs/firebase';
 
 const NavigationLoggiedIn = () => {
   const [expand, setExpand] = useState(false);
   const { loggedUser, setLoggedUser, setUserId } = useContext(AuthContext);
-  console.log(firebase);
   const handleSignOut = () => {
+    swal('Đã đăng xuất!', '', 'success');
     signOut(auth)
       .then(() => {
         setLoggedUser(null);
@@ -39,13 +39,13 @@ const NavigationLoggiedIn = () => {
         </div>
       </div>
       <div className="flex-nav-item">
-        <div className="nav-item">
+        <div className="nav-item r-nav">
           <Link href="/donators/register" passHref>
             <a className="login">Trở thành người ủng hộ</a>
           </Link>
         </div>
-        <div className="nav-item">
-          <Link href={{ pathname: '/user/wallet', query: { id: loggedUser?.uid, role: 'donator' } }} passHref>
+        <div className="nav-item r-nav">
+          <Link href={{ pathname: '/user/wallet', query: { id: loggedUser?.uid } }} passHref>
             <a className="wallet">Ví của tôi</a>
           </Link>
         </div>
@@ -55,7 +55,7 @@ const NavigationLoggiedIn = () => {
           </div>
         </div>
         <div className="drop-down-content" style={{ display: expand ? 'block' : 'none' }}>
-          <Link href={{ pathname: '/user/profile', query: { id: loggedUser?.uid, role: 'donator' } }} passHref>
+          <Link href={{ pathname: '/user/profile', query: { id: loggedUser?.uid } }} passHref>
             <a>
               <i className="bi bi-person-circle"></i> Trang cá nhân
             </a>
@@ -68,6 +68,16 @@ const NavigationLoggiedIn = () => {
           <a onClick={handleSignOut}>
             <i className="bi bi-box-arrow-in-right"></i> Đăng xuất
           </a>
+          <div className="nav-item r-wd">
+            <Link href="/donators/register" passHref>
+              <a className="login">Trở thành người ủng hộ</a>
+            </Link>
+          </div>
+          <div className="nav-item r-wd">
+            <Link href={{ pathname: '/user/wallet', query: { id: loggedUser?.uid } }} passHref>
+              <a className="wallet">Ví của tôi</a>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

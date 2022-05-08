@@ -3,8 +3,9 @@ import Link from 'next/link';
 import { useState } from 'react';
 import DonateAction from '../layout/DonateAction';
 
-const PostDetail = ({ role }) => {
+const PostDetail = ({hrefId}) => {
   const [display, setDisplay] = useState(false);
+
   return (
     <>
       <div className="PostDetail">
@@ -14,13 +15,15 @@ const PostDetail = ({ role }) => {
               <Image alt="avatar" src="/icon-512x512.png" width={512} height={512} objectFit="contain" />
             </div>
             <div className="post-user-info-name">
-              <Link href={{ pathname: '/user/profile', query: { id: 1, role: 'pns' } }}>
+              <Link href={{ pathname: '/user/profile', query: { id: hrefId} }}>
                 <a>Họ và tên</a>
               </Link>
               <cite>đăng lúc time</cite>
             </div>
           </div>
-          {role === 'donator' && (
+
+          {/* set role's display hear */}
+          {true && (
             <button className="donate-btn" onClick={() => setDisplay(true)}>
               Ủng hộ
             </button>

@@ -48,7 +48,14 @@ export default function RegisterForm() {
 
     return createUserWithEmailAndPassword(email, password);
   };
-  if (user) return <h2>Đang chuyển bạn đến trang chính...</h2>;
+  if (user)
+    return (
+      <>
+        <MetaData title="Đăng ký" description="Đăng ký" />
+        <h2>Đang chuyển bạn đến trang chính...</h2>
+        <Loading />
+      </>
+    );
   return (
     <>
       <MetaData title="Đăng ký" description="Đăng ký" />

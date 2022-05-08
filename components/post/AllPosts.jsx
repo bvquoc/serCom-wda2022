@@ -6,7 +6,7 @@ const AllPosts = () => {
     <>
       <div className="AllPosts">
         <div className="post-container">
-          <PostDetail />
+          <PostDetail hrefId = "1" />
         </div>
       </div>
     </>

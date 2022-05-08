@@ -41,16 +41,16 @@ const UpdatePost = ({ setDisplay }) => {
               </>
             )}
             {/* must check if image exist, if not, don't display the image */}
-            <div className="post-detailt-content-img center">
+            <div className="post-detail-content-img center">
               <Image src="/icon-512x512.png" alt="Post image" width={512} height={512} objectFit="contain" />
             </div>
             <label htmlFor="post-image" className="flex-space-between">
               <span className="center">
                 <b>Tải ảnh lên</b>
               </span>
-              <div className="flex-default center">
+              <div className="flex-default">
                 <input type="file" name="post-image" id="post-image" />
-                <div>
+                <div className='center'>
                   <i className="bi bi-upload"></i>
                 </div>
               </div>

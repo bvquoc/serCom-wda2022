@@ -1,0 +1,101 @@
+/* laptop */
+@media screen and (max-width: 1086px) {
+  body {
+    margin: 2rem 5%;
+  }
+  .Footer > .flex-space-between {
+    flex-direction: column;
+  }
+  .Footer .right,
+  .Footer .left {
+    justify-content: space-around;
+    margin: 1rem 0;
+  }
+}
+
+@media screen and (max-width: 968px) {
+  .Footer .left {
+    flex-direction: column;
+  }
+
+  .Footer .left .footer-item {
+    margin: 1rem;
+  }
+  .CreatePost {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .r-wd {
+    display: none;
+  }
+  .navStick {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .r-lr {
+    display: none;
+  }
+  .r-wd > a{
+    padding: 0.6rem 1rem !important;
+  }
+  .navStick {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: var(--secondaryColor);
+    z-index: 10;
+  }
+
+  .r-wallet {
+    grid-template-columns: 1fr;
+  }
+  .UpdatePost {
+    width: 100%;
+  }
+
+  main {
+    grid-template-columns: 1fr;
+    grid-auto-flow: dense;
+  }
+
+  .TopDonators{
+      grid-row: 1;
+  }
+
+  .r-nav {
+    display: none;
+  }
+
+  .Profile > .grid-4-6 {
+      grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 468px) {
+  .wide-screen {
+    padding: 5px;
+  }
+  .r-date {
+    flex-direction: column;
+  }
+  .WithDrawMoney {
+    width: 100% !important;
+  }
+  .PostManageModal {
+    width: 100%;
+  }
+  .UpdateUserInformation {
+    width: 100%;
+  }
+  
+  .nav-item > a {
+    padding: 0;
+  }
+}

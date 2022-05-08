@@ -8,15 +8,15 @@ const WithDrawMoney = ({ display, setDisplay }) => {
 
   const [formData, setFormData] = useState({
     money: 0,
-    paymentMethod: '',
+    payment_Method: 'on',
   });
   const handleSubmit = () => {
-    const { money, paymentMethod } = formData;
+    const { money, payment_Method } = formData;
     if (money < minMoney || money > maxMoney) {
       swal('Vui lòng nhập đúng số tiền theo quy định!', '', 'warning');
       return;
     }
-    if (paymentMethod !== 'on') {
+    if (payment_Method !== 'on') {
       swal('Vui lòng chọn phương thức thanh toán!', '', 'warning');
       return;
     }
@@ -47,8 +47,9 @@ const WithDrawMoney = ({ display, setDisplay }) => {
               </div>
               <input
                 type="radio"
-                name="paymentMethod"
+                name="payment_Method"
                 id="payment"
+                defaultChecked
                 onChange={(e) => onInputChange(e, formData, setFormData)}
               />
             </label>

@@ -47,7 +47,7 @@ const Wallet = () => {
           )}
         </div>
       </div>
-      <div className="grid-container">
+      <div className="grid-container r-wallet">
         <MoneyInWallet />
         {role === null ? <Loading /> : role === 'pns' ? <MoneyReceived /> : <MoneyDonated />}
         <WithDrawMoney display={display} setDisplay={setDisplay} />

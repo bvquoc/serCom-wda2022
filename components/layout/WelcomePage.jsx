@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from 'next/link';
 
 const WelcomePage = () => {
   return (
@@ -11,7 +11,7 @@ const WelcomePage = () => {
           <button className="start-btn">Bắt đầu ngay</button>
         </Link>
       </div>
-      <p className="center">Hoàn toàn miễn phí, và chưa tốn đến một phút của bạn.</p>
+      <p style={{ textAlign: 'center' }}>Hoàn toàn miễn phí, và chưa tốn đến một phút của bạn.</p>
     </div>
   );
 };

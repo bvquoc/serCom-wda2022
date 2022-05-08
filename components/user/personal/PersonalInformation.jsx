@@ -1,9 +1,14 @@
 import Image from 'next/image';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 import UpdateUserInformation from '../../management/UpdateUserInformation';
 
 const PersonalInformation = () => {
   const [display, setDisplay] = useState(false);
+
+  const router = useRouter();
+  const id = router.query.id;
+  console.log(id);
   return (
     <>
       <div>

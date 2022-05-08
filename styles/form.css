@@ -104,7 +104,7 @@ label[for='target'] > i::before {
 }
 
 input[name="post-image"]{
-  width: fit-content;
+  /* width: fit-content; */
   height: fit-content !important;
   border: none;
   border-radius: 0;
