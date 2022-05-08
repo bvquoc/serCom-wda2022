@@ -1,13 +1,29 @@
 import { useState } from 'react';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 import swal from 'sweetalert';
 import { onInputChange } from '../../libs';
+import { getUser } from '../../service';
+import Loading from '../onLoad/Loading';
 
 const UpdateUserInformation = ({ setDisplay }) => {
+  const [fetchData, setFetchData] = useState(null);
+  const router = useRouter();
+  useEffect(() => {
+    let mounted = true;
+    if (mounted) {
+      if (router.isReady) {
+        getUser(router.query.id).then((data) => setFetchData(data[0]));
+      }
+    }
+    return () => (mounted = false);
+  }, [router.isReady]);
+
   const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    telephone: '',
-    address: '',
+    fullName: fetchData?.fullname,
+    email: fetchData?.email,
+    telephone: fetchData?.telephone,
+    address: fetchData?.address,
   });
 
   const handleSubmit = () => {
@@ -17,7 +33,9 @@ const UpdateUserInformation = ({ setDisplay }) => {
     }
     console.log(formData);
   };
-  console.log(formData);
+
+  if (!fetchData) return <Loading />;
+
   return (
     <>
       <div className="wide-screen">
@@ -28,29 +46,26 @@ const UpdateUserInformation = ({ setDisplay }) => {
             <input
               type="text"
               name="fullName"
-              defaultValue="Trần Tuấn Kiệt"
-              placeholder="Họ và tên"
+              placeholder={fetchData.fullname}
               onChange={(e) => onInputChange(e, formData, setFormData)}
             />
             <input
               type="email"
               name="email"
-              defaultValue="Email"
-              placeholder="Email"
+              placeholder={fetchData.email}
               onChange={(e) => onInputChange(e, formData, setFormData)}
             />
             <input
               type="tel"
               name="telephone"
-              defaultValue="000"
-              placeholder="Số điện thoại"
+              placeholder={fetchData.telephone}
               onChange={(e) => onInputChange(e, formData, setFormData)}
             />
+
             <input
               type="text"
               name="address"
-              defaultValue="000"
-              placeholder="Địa chỉ"
+              placeholder={fetchData.address}
               onChange={(e) => onInputChange(e, formData, setFormData)}
             />
             <div className="reverse-flex-default">

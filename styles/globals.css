@@ -145,3 +145,28 @@ textarea {
   overflow: auto;
   margin-bottom: 1rem;
 }
+
+table{
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+thead{
+  background-color: var(--tertiaryColor);
+}
+
+th,td{
+  border: 1px solid #000;
+  padding: 1rem;
+}
+
+td:first-child{
+  font-weight: 500;
+}
+
+tbody tr:hover{
+  background-color: var(--quaternaryColor);
+  color: var(--contrastTextColor);
+  cursor: pointer;
+}

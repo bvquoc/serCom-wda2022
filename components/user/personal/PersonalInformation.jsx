@@ -25,11 +25,6 @@ const PersonalInformation = ({ allUsersId }) => {
   }, [router.isReady,router.query.id]);
   // console.log(user);
   if (user?.length === 0) return <Loading />;
-  if (!allUsersId.includes(user?.id)) {
-    <Custom404 />;
-    router.push('/404');
-    return;
-  }
   return (
     <>
       <div>

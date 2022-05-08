@@ -7,7 +7,7 @@ import { AuthContext } from '../../contexts/AuthContext';
 import { auth } from '../../libs/firebase';
 import SingleLogo from './SingleLogo';
 
-const NavigationLoggiedIn = () => {
+const NavigationLoggedIn = () => {
   const [expand, setExpand] = useState(false);
   const { loggedUser, setLoggedUser } = useContext(AuthContext);
   const handleSignOut = () => {
@@ -39,12 +39,12 @@ const NavigationLoggiedIn = () => {
       </div>
       <div className="flex-nav-item">
         <div className="nav-item r-nav">
-          <Link href="/donators/register" passHref>
+          <Link href={{pathname:"/donators/register", query: {id: loggedUser?.uid}}} passHref>
             <a className="login">Trở thành người ủng hộ</a>
           </Link>
         </div>
         <div className="nav-item r-nav">
-          <Link href={{pathname: "/user/wallet", query: loggedUser.uid}} passHref>
+          <Link href={{pathname: "/user/wallet", query: {id: loggedUser.uid}}} passHref>
             <a className="wallet">Ví của tôi</a>
           </Link>
         </div>
@@ -59,7 +59,7 @@ const NavigationLoggiedIn = () => {
               <i className="bi bi-person-circle"></i> Trang cá nhân
             </a>
           </Link>
-          <Link href="/user/statistics" passHref>
+          <Link href={{pathname: "/user/statistics", query: {id: loggedUser.uid}}} passHref>
             <a>
               <i className="bi bi-graph-down"></i> Thống kê
             </a>
@@ -68,7 +68,7 @@ const NavigationLoggiedIn = () => {
             <i className="bi bi-box-arrow-in-right"></i> Đăng xuất
           </a>
           <div className="nav-item r-wd">
-            <Link href="/donators/register" passHref>
+            <Link href={{pathname: "/user/wallet", query: {id: loggedUser.uid}}} passHref>
               <a className="login">Trở thành người ủng hộ</a>
             </Link>
           </div>
@@ -83,4 +83,4 @@ const NavigationLoggiedIn = () => {
   );
 };
 
-export default NavigationLoggiedIn;
+export default NavigationLoggedIn;

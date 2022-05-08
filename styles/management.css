@@ -58,7 +58,7 @@
 .UpdatePost{
   background-color: var(--quaternaryColor);
   padding: 2rem;
-  width: 80%;
+  width: 60%;
   border-radius: 10px;
 }
 
@@ -88,7 +88,7 @@
 
 
 .UpdateUserInformation{
-  width: 80%;
+  width: 400px;
   background-color: var(--secondaryColor);
   padding: 2rem;
   border-radius: 10px;
