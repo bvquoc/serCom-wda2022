@@ -1,6 +1,7 @@
 import PostDetail from './PostDetail';
 
 const AllPosts = ({ posts }) => {
+
   return (
     <>
       <div className="AllPosts">

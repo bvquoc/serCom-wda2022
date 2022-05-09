@@ -1,21 +1,23 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { getUserPosts } from '../../service';
+import { getUser } from '../../service';
 import PostManageModal from '../management/PostManageModal';
 import Loading from '../onLoad/Loading';
-import PostDetail from '../post/PostDetail';
+import UserPost from '../post/UserPost';
 
 const RolesPage = ({ role }) => {
   const [display, setDisplay] = useState(false);
-  const [userPosts, setUserPosts] = useState(null);
+  const [user, setUser] = useState(null);
+
   const router = useRouter();
   useEffect(() => {
     if (router.isReady) {
-      getUserPosts(router.query.id).then((res) => setUserPosts(res));
+      getUser(router.query.id).then((res) => setUser(res[0]));
     }
   }, [router.isReady]);
 
-  if (!userPosts) return <Loading />;
+  if (!user) return <Loading />;
+  // console.log(userPosts);
 
   return (
     <>
@@ -30,8 +32,8 @@ const RolesPage = ({ role }) => {
             )}
           </div>
         </div>
-        {userPosts.map((post) => (
-          <PostDetail key={post._docId} {...post} />
+        {user.isPns.posts.map((postId) => (
+          <UserPost key={postId} postId={postId} />
         ))}
       </div>
       {display && <PostManageModal setDisplay={setDisplay} />}

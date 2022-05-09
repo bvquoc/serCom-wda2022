@@ -1,15 +1,17 @@
+import { doc, getDoc } from 'firebase/firestore';
 import { useRouter } from 'next/router';
 import { useContext, useState } from 'react';
 import swal from 'sweetalert';
+import timestamp from 'time-stamp';
 import uniqid from 'uniqid';
 import { AuthContext } from '../../contexts/AuthContext';
 import { onInputChange } from '../../libs';
+import { auth, firestore } from '../../libs/firebase';
 import { addDocument } from '../../libs/firestore/update-document/add-a-document';
-import timestamp from 'time-stamp';
+import { updateDocument } from '../../libs/firestore/update-document/update-a-document';
 
 export const CreatePost = ({ setDisplay }) => {
   const { currentUserData } = useContext(AuthContext);
-  console.log(currentUserData);
   const [checked, setChecked] = useState(false);
   const router = useRouter();
   const [formData, setFormData] = useState({
@@ -21,6 +23,24 @@ export const CreatePost = ({ setDisplay }) => {
   });
 
   // const [img, setImg] = useState(null);
+  const updateUsersPost = async (userId, postId) => {
+    const docRef = doc(firestore, 'users', userId);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      const role = currentUserData.isPns.auth ? 'isPns' : 'isDonator';
+      const updateTerm = docSnap.data()[role];
+      const posts = [...updateTerm.posts];
+      posts.push(postId);
+      const newIsPns = { ...updateTerm, posts };
+      const updateData = {
+        role: newIsPns,
+      };
+      updateDocument('users', userId, updateData);
+    } else {
+      console.log('No such document!');
+    }
+  };
 
   const handleSubmit = () => {
     const isTarget = {
@@ -60,11 +80,12 @@ export const CreatePost = ({ setDisplay }) => {
         id: currentUserData.id,
       },
     };
+
     addDocument('posts', postId, data)
+      .then(() => updateUsersPost(auth.currentUser.uid, postId))
       .then(() => {
         swal('Thành công!', 'Tạo bài viết thành công.', 'success');
         setDisplay(false);
-        router.push('/');
       })
       .then(() => window.location.reload());
   };

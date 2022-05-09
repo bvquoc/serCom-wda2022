@@ -8,7 +8,7 @@ export const getUser = async (id) => {
   const result = [];
   await getDocs(usersQuery).then((snapshot) => {
     snapshot.docs.forEach((doc) => {
-      result.push({ ...doc.data(), email: doc.id });
+      result.push({ ...doc.data(), _docId: doc.id });
     });
   });
   console.log('res:', result);
@@ -41,10 +41,15 @@ export const getAllPosts = async () => {
   return result;
 };
 
-export const getUserPosts = async (id) => {
+export const getUserPosts = async (postsId) => {
   const result = [];
-  await getUser(id).then((user) => {
-    result = user?.isPns?.posts;
-  })
-  return result;
+  const postsCollection = collection(firestore, 'posts');
+  const postsQuery = query(postsCollection, where('id', '==', postsId || ''),limit(1));
+  await getDocs(postsQuery).then((snapshot) => {
+    snapshot.docs.forEach((doc) => {
+      result.push({ ...doc.data(), _docId: doc.id });
+    });
+  });
+  console.log('user post:', result);
+  return result[0];
 };

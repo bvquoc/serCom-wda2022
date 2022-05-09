@@ -56,10 +56,12 @@ export default function RegisterForm() {
       id: user.user.uid,
       totalMoney: 0,
       isPns: {
+        auth: true,
         moneyReceived: 0,
         posts: [],
       },
       isDonator: {
+        auth: false,
         moneyDonated: 0,
         donatedPosts: [],
       },
