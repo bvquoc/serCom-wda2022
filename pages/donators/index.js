@@ -9,15 +9,14 @@ import { AuthContext } from '../../contexts/AuthContext';
 import { getAllUsers } from '../../service';
 
 const Donators = () => {
-
-  const {loggedUser} = useContext(AuthContext);
+  const { loggedUser } = useContext(AuthContext);
 
   const [allUsers, setAllUsers] = useState(null);
   const [searchValue, setSearchValue] = useState('');
   useEffect(() => {
     let mounted = true;
     if (mounted) {
-      getAllUsers().then((data) => setAllUsers(data));
+      getAllUsers().then((data) => setAllUsers(data.filter((item) => item.isDonator.auth)));
     }
     return () => (mounted = false);
   }, []);
@@ -26,7 +25,7 @@ const Donators = () => {
   return (
     <>
       <MetaData title="Người ủng hộ" description="Danh sách người ủng hộ" />
-      {loggedUser ? <NavigationLoggedIn /> :<Navigation />}
+      {loggedUser ? <NavigationLoggedIn /> : <Navigation />}
       <div className="Donators">
         <h1>Danh sách Người ủng hộ</h1>
         <div className="flex-space-between">

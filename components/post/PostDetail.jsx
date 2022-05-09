@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import { DonateAction, ImagePopUp } from '../layout';
 import { useContext } from 'react';
+import { toDot } from '../../libs';
 
 const PostDetail = ({ description, title, imgURL, isChecked, createdAt, user, value, given }) => {
   const [display, setDisplay] = useState(false);
@@ -47,11 +48,11 @@ const PostDetail = ({ description, title, imgURL, isChecked, createdAt, user, va
             <div className="target">
               <div className="target-amout" style={{ width: (given / value) * 100 + '%' }}></div>
             </div>
-            <div style={{ textAlign: 'center', marginTop: '1rem' }}>
+            <div style={{ textAlign: 'center', marginTop: '2rem' }}>
               Đã nhận được{' '}
               <span className="given">
                 <b>
-                  {given}/{value}
+                  {toDot(given)}/{toDot(value)}
                 </b>
               </span>{' '}
               VNĐ
