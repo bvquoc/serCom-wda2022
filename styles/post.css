@@ -1,5 +1,7 @@
 main {
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 70% 1rem 30%;
   grid-template-columns: 70% 30%;
   gap: 1rem;
 }
@@ -15,17 +17,24 @@ main {
 .PostDetail {
   width: 100%;
   padding: 1rem;
+  -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   background-color: var(--primaryColor);
 }
 
 .post-detail-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
 .post-user-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -47,6 +56,8 @@ main {
 .vote-btn {
   background-color: var(--tertiaryColor) !important;
   padding: 0.6rem 2rem;
+  height: -webkit-fit-content !important;
+  height: -moz-fit-content !important;
   height: fit-content !important;
 }
 
@@ -79,11 +90,15 @@ main {
   border-radius: 10px 10px 0 0;
   border: 1px solid black;
   padding: 1rem 1rem 0 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
 .high-rate-post {
   min-width: 300px;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
   max-width: fit-content;
   cursor: pointer;
   margin-right: 1rem;
@@ -119,6 +134,7 @@ main {
 .CreatePostLayout {
   width: 100%;
   background-color: var(--primaryColor);
+  -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
   padding: 1rem;
   border-radius: 10px;
@@ -156,15 +172,17 @@ main {
   border-radius: 10px;
 }
 
-.ShortenedPost{
+.ShortenedPost {
+  display: -ms-grid;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
   gap: 1rem;
 }
 
-.pm-item{
+.pm-item {
   width: 100%;
   border-radius: 10px;
+  -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
   padding: 0 1rem;
 }

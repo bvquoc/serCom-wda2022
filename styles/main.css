@@ -20,7 +20,7 @@
   margin-bottom: 3rem;
 }
 
-.author + h3{
+.author + h3 {
   text-align: center;
 }
 
@@ -30,38 +30,53 @@
   padding: 0 2rem;
 }
 
-.FAQ{
+.FAQ {
   min-height: 50vh;
 }
 
-.Donators{
+.Donators {
   min-height: 50vh;
 }
 
-.welcomepage_img{
+.welcomepage_img {
   width: 100%;
 }
 
-.welcomepage_desc{
+.welcomepage_desc {
   text-align: right;
 }
 
-.welcomepage_desc > div > div > h1, .welcomepage_desc > div > div > a > h1{
+.welcomepage_desc > div > div > h1,
+.welcomepage_desc > div > div > a > h1 {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   background-color: var(--tertiaryColor);
   padding: 1rem;
 }
 
-.welcomepage_desc > div > div > h2{
+.welcomepage_desc > div > div > h2 {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   background-color: var(--quaternaryColor);
   padding: 1rem;
   color: var(--contrastTextColor);
 }
 
-.r-rg{
+.r-rg {
   background-color: var(--secondaryColor);
   padding: 1rem;
   border-radius: 10px;
   border: 4px dashed rgba(0, 0, 0, 0.416);
+}
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+.scroll-to-top i {
+  font-size: 2rem;
 }

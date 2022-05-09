@@ -16,20 +16,31 @@ import Custom404 from '../404';
 const Wallet = () => {
   const [display, setDisplay] = useState(false);
   const [deposit, setDeposit] = useState(false);
+  const [user, setUser] = useState(null);
   const { loggedUser } = useContext(AuthContext);
-  console.log('loggedUser: ', loggedUser);
+
   const router = useRouter();
-  useEffect(() => {}, [router.isReady]);
-//   if (router.isReady) {
-//     if (loggedUser?.uid !== router.query.id && loggedUser !== null) return <Custom404 />;
-//   }
-setTimeout(() => {
-    console.log('loggedUser: ', loggedUser);
-},3000);
-  if (!loggedUser) return <Loading />;
+
+  useEffect(() => {
+    let mounted = true;
+    if (mounted) {
+      if (router.isReady) {
+        getUser(router.query.id).then((res) => {
+          if (res.length === 0) {
+            router.isFallback = true;
+          }
+          setUser(res[0]);
+        });
+      }
+    }
+  }, [router.isReady]);
+
+  if (router.isFallback) return <Custom404 />;
+  if (!user) return <Loading />;
+
   return (
     <>
-      <MetaData title="Ví của tôi - " description="Ví của tôi" />
+      <MetaData title={`Ví của tôi - ${user.fullname}`} description="Ví của tôi" />
       <SingleLogo />
       <div className="flex-space-between">
         <h1>

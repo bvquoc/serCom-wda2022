@@ -1,12 +1,36 @@
 import Link from 'next/link';
-
-import { useState } from 'react';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import SingleLogo from '../../../components/layout/SingleLogo';
 import MetaData from '../../../components/meta/MetaData';
+import Loading from '../../../components/onLoad/Loading';
 import DonatorRegisterForm from '../../../components/user/DonatorRegisterForm';
+import { getUser } from '../../../service';
+import Custom404 from '../../404';
 
 const DonatorRegister = () => {
   const [display, setDisplay] = useState(false);
+
+  const [user, setUser] = useState(null);
+
+  const router = useRouter();
+
+  useEffect(() => {
+    let mounted = true;
+    if (mounted) {
+      if (router.isReady) {
+        getUser(router.query.id).then((res) => {
+          if (res.length === 0) {
+            router.isFallback = true;
+          }
+          setUser(res[0]);
+        });
+      }
+    }
+  }, [router.isReady]);
+
+  if (router.isFallback) return <Custom404 />;
+  if (!user) return <Loading />;
 
   return (
     <>

@@ -3,6 +3,7 @@ import CreatePostLayout from '../components/layout/CreatePostLayout';
 import Footer from '../components/layout/Footer';
 import Navigation from '../components/layout/Navigation';
 import NavigationLoggedIn from '../components/layout/NavigationLoggedIn';
+import ScrollToTop from '../components/layout/ScrollToTop';
 import TopDonators from '../components/layout/TopDonators';
 import WelcomePage from '../components/layout/WelcomePage';
 import MetaData from '../components/meta/MetaData';
@@ -30,6 +31,7 @@ export default function Home() {
         <WelcomePage />
       )}
       <Footer />
+      <ScrollToTop />
     </>
   );
 }

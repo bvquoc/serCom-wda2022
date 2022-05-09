@@ -16,7 +16,8 @@
   height: 3em;
   border: 3px solid var(--quaternaryColor);
   overflow: hidden;
-  animation: spin 3s ease infinite;
+  -webkit-animation: spin 3s ease infinite;
+          animation: spin 3s ease infinite;
 }
 
 .loading::before {
@@ -27,24 +28,52 @@
   width: 3em;
   height: 3em;
   background-color: var(--secondaryColor);
-  transform-origin: center bottom;
-  transform: scaleY(1);
-  animation: fill 3s linear infinite;
+  -webkit-transform-origin: center bottom;
+      -ms-transform-origin: center bottom;
+          transform-origin: center bottom;
+  -webkit-transform: scaleY(1);
+      -ms-transform: scaleY(1);
+          transform: scaleY(1);
+  -webkit-animation: fill 3s linear infinite;
+          animation: fill 3s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  50%,
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
 
 @keyframes spin {
   50%,
   100% {
-    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes fill {
+  25%,
+  50% {
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+  }
+  100% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
   }
 }
 
 @keyframes fill {
   25%,
   50% {
-    transform: scaleY(0);
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
   }
   100% {
-    transform: scaleY(1);
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
   }
 }

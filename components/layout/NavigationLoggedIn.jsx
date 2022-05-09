@@ -6,10 +6,12 @@ import swal from 'sweetalert';
 import { AuthContext } from '../../contexts/AuthContext';
 import { auth } from '../../libs/firebase';
 import SingleLogo from './SingleLogo';
+import { useRouter } from 'next/router';
 
 const NavigationLoggedIn = () => {
   const [expand, setExpand] = useState(false);
   const { loggedUser, setLoggedUser } = useContext(AuthContext);
+  const router = useRouter();
   const handleSignOut = () => {
     swal('Đã đăng xuất!', '', 'success');
     signOut(auth)
@@ -28,23 +30,23 @@ const NavigationLoggedIn = () => {
         <SingleLogo />
         <div className="nav-item">
           <Link href="/faq" passHref>
-            <a>FAQ</a>
+            <a className={`${router.pathname === '/faq' && 'faq_actived'}`}>FAQ</a>
           </Link>
         </div>
         <div className="nav-item">
           <Link href="/donators" passHref>
-            <a>Người ủng hộ</a>
+            <a className={`${router.pathname === '/donators' && 'donators_actived'}`}>Người ủng hộ</a>
           </Link>
         </div>
       </div>
       <div className="flex-nav-item">
         <div className="nav-item r-nav">
-          <Link href={{pathname:"/donators/register", query: {id: loggedUser?.uid}}} passHref>
+          <Link href={{ pathname: '/donators/register', query: { id: loggedUser?.uid } }} passHref>
             <a className="login">Trở thành người ủng hộ</a>
           </Link>
         </div>
         <div className="nav-item r-nav">
-          <Link href={{pathname: "/user/wallet", query: {id: loggedUser.uid}}} passHref>
+          <Link href={{ pathname: '/user/wallet', query: { id: loggedUser.uid } }} passHref>
             <a className="wallet">Ví của tôi</a>
           </Link>
         </div>
@@ -59,7 +61,7 @@ const NavigationLoggedIn = () => {
               <i className="bi bi-person-circle"></i> Trang cá nhân
             </a>
           </Link>
-          <Link href={{pathname: "/user/statistics", query: {id: loggedUser.uid}}} passHref>
+          <Link href={{ pathname: '/user/statistics', query: { id: loggedUser.uid } }} passHref>
             <a>
               <i className="bi bi-graph-down"></i> Thống kê
             </a>
@@ -68,7 +70,7 @@ const NavigationLoggedIn = () => {
             <i className="bi bi-box-arrow-in-right"></i> Đăng xuất
           </a>
           <div className="nav-item r-wd">
-            <Link href={{pathname: "/user/wallet", query: {id: loggedUser.uid}}} passHref>
+            <Link href={{ pathname: '/donators/register', query: { id: loggedUser.uid } }} passHref>
               <a className="login">Trở thành người ủng hộ</a>
             </Link>
           </div>

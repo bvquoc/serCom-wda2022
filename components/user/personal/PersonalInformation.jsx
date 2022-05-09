@@ -4,27 +4,36 @@ import { useEffect, useState } from 'react';
 import { getUser } from '../../../service';
 import UpdateUserInformation from '../../management/UpdateUserInformation';
 import Loading from '../../onLoad/Loading';
-import Custom404 from '../../../pages/404';
+import Custom404 from "../../../pages/404"
 
-const PersonalInformation = ({ allUsersId }) => {
+const PersonalInformation = () => {
   const router = useRouter();
 
   const [display, setDisplay] = useState(false);
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     let mounted = true;
 
     if (mounted)
       if (router.isReady) {
-        getUser(router.query.id).then((res) => setUser(res[0]));
+        getUser(router.query.id).then((res) => {
+          if(res.length === 0) router.isFallback = true;
+          setUser(res[0])
+        });
       }
     return () => {
       mounted = false;
     };
   }, [router.isReady,router.query.id]);
-  // console.log(user);
-  if (user?.length === 0) return <Loading />;
+  
+
+  // protect route
+  if(router.isFallback){
+    router.push('/404');
+  }
+  if (!user) return <Loading />;
+
   return (
     <>
       <div>

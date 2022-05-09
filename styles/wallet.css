@@ -5,11 +5,15 @@
   position: relative;
   min-height: 200px;
   background-color: var(--secondaryColor);
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
 
 .MoneyInWallet:hover,
 .MoneyReceived:hover {
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
   transform: scale(1.05);
 }
 
@@ -19,6 +23,8 @@
   top: 0;
   left: -1px;
   background-color: var(--tertiaryColor);
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   padding: 0.5rem 1rem;
 }
@@ -62,9 +68,9 @@ label[for='payment'] {
   border-radius: 10px;
 }
 
-.cancel{
-    background-color: red;
-    margin-top: 1rem;
-    color: var(--contrastTextColor);
-    width: 100%;
+.cancel {
+  background-color: red;
+  margin-top: 1rem;
+  color: var(--contrastTextColor);
+  width: 100%;
 }

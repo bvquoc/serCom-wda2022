@@ -1,13 +1,16 @@
-/* laptop */
 @media screen and (max-width: 1086px) {
   body {
     margin: 2rem 5%;
   }
   .Footer > .flex-space-between {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
   }
   .Footer .right,
   .Footer .left {
+    -ms-flex-pack: distribute;
     justify-content: space-around;
     margin: 1rem 0;
   }
@@ -15,6 +18,9 @@
 
 @media screen and (max-width: 968px) {
   .Footer .left {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
   }
 
@@ -44,7 +50,10 @@
   }
   .navStick {
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-pack: distribute;
     justify-content: space-around;
     position: fixed;
     bottom: 0;
@@ -59,6 +68,7 @@
   }
 
   .r-wallet {
+    -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
   }
   .UpdatePost {
@@ -66,11 +76,13 @@
   }
 
   main {
+    -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
     grid-auto-flow: dense;
   }
 
   .TopDonators {
+    -ms-grid-row: 1;
     grid-row: 1;
   }
 
@@ -79,24 +91,30 @@
   }
 
   .Profile > .grid-4-6 {
+    -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
   }
 
-  .r-rg{
+  .r-rg {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: column-reverse;
     flex-direction: column-reverse;
   }
-  .r-rg h1{
+  .r-rg h1 {
     font-size: 1.4rem;
   }
 
-
-  .r-rg .center > div{
+  .r-rg .center > div {
+    display: -ms-grid;
     display: grid;
     place-items: center;
   }
 
-  .r-rg h2{
+  .r-rg h2 {
     font-size: 1rem;
   }
 }
@@ -106,6 +124,9 @@
     padding: 5px;
   }
   .r-date {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
   }
   .WithDrawMoney {

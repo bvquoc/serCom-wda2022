@@ -2,7 +2,8 @@
 
 * {
   font-family: var(--fontFamily);
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   font-size: 1rem;
 }
 
@@ -92,7 +93,9 @@ input[type='range'] {
 
 input[type='radio'] {
   all: unset;
-  appearance: auto;
+  -webkit-appearance: auto;
+     -moz-appearance: auto;
+          appearance: auto;
   width: 16px;
 }
 
@@ -102,6 +105,8 @@ input[type='checkbox'] {
   padding: 0;
   border: none;
   margin: 0;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
 }
 
@@ -115,15 +120,20 @@ button {
   height: 40px !important;
   outline: none;
   border: none;
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
   font-weight: 600;
 }
 
 button:hover {
-  transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
 .center {
+  display: -ms-grid;
   display: grid;
   place-items: center;
 }

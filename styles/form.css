@@ -32,11 +32,14 @@
 
 input[name='confirm'] {
   -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
   width: 100%;
   height: 10px !important;
   background: #000;
   -webkit-transition: 0.2s;
+  -webkit-transition: opacity 0.2s;
+  -o-transition: opacity 0.2s;
   transition: opacity 0.2s;
 }
 
@@ -64,8 +67,9 @@ input[name='confirm']::-webkit-slider-thumb {
   background-color: var(--tertiaryColor);
 }
 
-
 input[name='anonymous'] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
 }
 label[for='anonymous'] {
@@ -81,6 +85,8 @@ label[for='anonymous'] > i::before {
 }
 
 input[name='target'] {
+  -moz-appearance: none;
+  -webkit-appearance: none;
   appearance: none;
 }
 
@@ -96,33 +102,37 @@ label[for='target'] > i::before {
   font-size: 1.5rem;
 }
 
-.btn-create-post{
+.btn-create-post {
   background-color: var(--quaternaryColor);
   color: var(--contrastTextColor);
   padding: 0 1rem;
   margin-top: 1rem;
 }
 
-input[name="post-image"]{
+input[name='post-image'] {
   /* width: fit-content; */
+  height: -webkit-fit-content !important;
+  height: -moz-fit-content !important;
   height: fit-content !important;
   border: none;
   border-radius: 0;
   padding: 0;
 }
 
-input[name="post-image"]::-webkit-file-upload-button {
+input[name='post-image']::-webkit-file-upload-button {
   display: none;
 }
 
-label[for="post-image"] {
-  background-color: rgb(248, 248, 248);
+label[for='post-image'] {
+  background-color: #f8f8f8;
   margin-top: 1rem;
   padding: 0 1rem;
   border-radius: var(--borderRadius);
 }
 
 input[name='loginSave'] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
 }
 

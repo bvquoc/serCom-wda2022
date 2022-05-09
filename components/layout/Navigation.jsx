@@ -2,8 +2,11 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import SingleLogo from './SingleLogo';
+import { useRouter } from 'next/router';
 
 const Navigation = () => {
+  const router = useRouter();
+  console.log(router.pathname);
   return (
     <>
       <div className="navigation">
@@ -11,12 +14,12 @@ const Navigation = () => {
           <SingleLogo />
           <div className="nav-item">
             <Link href="/faq" passHref>
-              <a>FAQ</a>
+              <a className={`${router.pathname === '/faq' && 'faq_actived'}`}>FAQ</a>
             </Link>
           </div>
           <div className="nav-item">
             <Link href="/donators" passHref>
-              <a>Người ủng hộ</a>
+              <a className={`${router.pathname === '/donators' && 'donators_actived'}`}>Người ủng hộ</a>
             </Link>
           </div>
         </div>
