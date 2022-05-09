@@ -5,8 +5,7 @@ import { useEffect, useState } from 'react';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import swal from 'sweetalert';
 import { onInputChange } from '../../libs';
-import { addDocument } from '../../libs/add-a-document';
-import { auth } from '../../libs/firebase';
+import { addDocument } from '../../libs/firestore/update-document/add-a-document';
 import MetaData from '../meta/MetaData';
 import Loading from '../onLoad/Loading';
 
