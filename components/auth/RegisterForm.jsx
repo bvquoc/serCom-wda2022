@@ -53,7 +53,16 @@ export default function RegisterForm() {
     const userData = {
       ...formData,
       id: user.user.uid,
-      posts: [],
+      totalMoney: 0,
+      isPns: {
+        moneyReceived: 0,
+        posts: [],
+      },
+      isDonator: {
+        moneyDonated: 0,
+        donatedPosts: [],
+      },
+      votedPosts: [],
     };
     delete userData['password'];
     delete userData['confirmPassword'];

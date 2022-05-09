@@ -31,8 +31,8 @@ const PostDetail = ({ description, title, imgURL, isTarget, createdAt, createdBy
           )}
         </div>
         <div className="post-detail-content">
-          <h2>Tiêu đề</h2>
-          <p>Mô tả</p>
+          <h2>{title}</h2>
+          <p>{description}</p>
           <div className="post-detail-content-img center">
             <img alt="image" src={imgURL} onClick={() => setPopUpImage(true)} />
           </div>
