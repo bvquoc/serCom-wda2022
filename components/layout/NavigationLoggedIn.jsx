@@ -7,6 +7,7 @@ import swal from 'sweetalert';
 import { AuthContext } from '../../contexts/AuthContext';
 import { auth } from '../../libs/firebase';
 import SingleLogo from './SingleLogo';
+import Loading from '../onLoad/Loading';
 
 const NavigationLoggedIn = () => {
   const [expand, setExpand] = useState(false);
@@ -24,6 +25,8 @@ const NavigationLoggedIn = () => {
       });
   };
 
+  if (!currentUserData) return <Loading />;
+
   return (
     <div className="navigation">
       <div className="flex-nav-item">
@@ -40,11 +43,13 @@ const NavigationLoggedIn = () => {
         </div>
       </div>
       <div className="flex-nav-item">
-        <div className="nav-item r-nav">
-          <Link href={{ pathname: '/donators/register', query: { id: loggedUser?.uid } }} passHref>
-            <a className="login">Trở thành người ủng hộ</a>
-          </Link>
-        </div>
+        {currentUserData.isPns.auth && (
+          <div className="nav-item r-nav">
+            <Link href={{ pathname: '/donators/register', query: { id: loggedUser?.uid } }} passHref>
+              <a className="login">Trở thành người ủng hộ</a>
+            </Link>
+          </div>
+        )}
         <div className="nav-item r-nav">
           <Link href={{ pathname: '/user/wallet', query: { id: loggedUser.uid } }} passHref>
             <a className="wallet">Ví của tôi</a>
@@ -52,7 +57,7 @@ const NavigationLoggedIn = () => {
         </div>
         <div className="nav-item">
           <div className="img-dropdown" onClick={() => setExpand(!expand)}>
-            <img src={currentUserData.avatar.url || "/defaultAvatar.jpg"} alt="Avatar"/>
+            <img src={currentUserData.avatar.url || '/defaultAvatar.jpg'} alt="Avatar" />
           </div>
         </div>
         <div className="drop-down-content" style={{ display: expand ? 'block' : 'none' }}>

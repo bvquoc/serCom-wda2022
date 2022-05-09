@@ -32,9 +32,9 @@ const RolesPage = ({ role, currentUserData }) => {
             )}
           </div>
         </div>
-        {user.isPns.posts.map((postId) => (
+        {user.isPns.posts.length !== 0 ? user.isPns.posts.map((postId) => (
           <UserPost key={postId} postId={postId} />
-        ))}
+        )) : <h1>Chưa có bài viết nào</h1>}
       </div>
       {display && <PostManageModal setDisplay={setDisplay} />}
     </>

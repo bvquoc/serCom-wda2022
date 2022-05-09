@@ -8,6 +8,7 @@ const TopDonators = () => {
           <h2>
             <i className="bi bi-stars"></i> Người ủng hộ nổi bật
           </h2>
+          <cite>Chưa có thông tin</cite>
           {/* {<div className="top-donators-grid">
             <div className="top-donators-img">
               <Image src="/icon-512x512.png" alt="Avatar" width={512} height={512} objectFit="contain" priority />
