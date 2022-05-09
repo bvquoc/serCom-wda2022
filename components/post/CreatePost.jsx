@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import { onInputChange } from '../../libs';
+import uniqid from 'uniqid';
+import { addDocument } from '../../libs/firestore/update-document/add-a-document';
+import swal from 'sweetalert';
 
 export const CreatePost = ({ setDisplay }) => {
   const [checked, setChecked] = useState(false);
@@ -11,7 +14,6 @@ export const CreatePost = ({ setDisplay }) => {
     dateEnd: '',
     value: 0,
   });
-
 
   const handleSubmit = () => {
     const isTarget = {
@@ -36,7 +38,16 @@ export const CreatePost = ({ setDisplay }) => {
         return swal('Ngày bắt đầu phải nhỏ hơn ngày kết thúc', '', 'warning');
       }
     }
-    console.log(formData, isTarget);
+
+    const postId = uniqid('post');
+    const data = {
+      id: postId,
+      ...isTarget,
+      ...formData,
+    };
+
+    addDocument('posts', postId, data);
+    swal('Thành công!', 'Tạo bài viết thành công.', 'success');
   };
 
   return (
@@ -90,8 +101,13 @@ export const CreatePost = ({ setDisplay }) => {
                 <b>Tải ảnh lên</b>
               </div>
               <div className="flex-default">
-                <input type="file" name="post-image" id="post-image" onChange={(e) => console.log(e.target.files[0].name)} />
-                <div className='center'>
+                <input
+                  type="file"
+                  name="post-image"
+                  id="post-image"
+                  onChange={(e) => console.log(e.target.files[0].name)}
+                />
+                <div className="center">
                   <i className="bi bi-upload"></i>
                 </div>
               </div>
