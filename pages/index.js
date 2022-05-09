@@ -19,7 +19,7 @@ export default function Home() {
     let mounted = true;
     if (mounted)
       if (router.isReady) {
-        getAllPosts().then((res) => setPosts(res));
+        getAllPosts().then((res) => setPosts(res.reverse()));
       }
 
     return () => {

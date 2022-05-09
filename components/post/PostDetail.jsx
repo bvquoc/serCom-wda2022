@@ -2,14 +2,11 @@ import moment from 'moment';
 import Link from 'next/link';
 import { useState } from 'react';
 import { DonateAction, ImagePopUp } from '../layout';
-import Loading from "../onLoad/Loading"
 
-const PostDetail = ({ description, title, imgURL, isTarget, createdAt, user }) => {
+const PostDetail = ({ description, title, imgURL, isChecked, createdAt, user }) => {
   const [display, setDisplay] = useState(false);
   const [popUpImage, setPopUpImage] = useState(false);
   console.log(user);
-
-  // if(!user) return <Loading />;
 
   return (
     <>
@@ -38,10 +35,10 @@ const PostDetail = ({ description, title, imgURL, isTarget, createdAt, user }) =
           <h2>{title}</h2>
           <p>{description}</p>
           <div className="post-detail-content-img center">
-            <img alt="image" src={imgURL} onClick={() => setPopUpImage(true)} />
+            {imgURL && <img alt="image" src={imgURL} onClick={() => setPopUpImage(true)} />}
           </div>
         </div>
-        {isTarget && (
+        {isChecked && (
           <div className="post-detail-bottom">
             <h3>Mục tiêu</h3>
             <div className="target">

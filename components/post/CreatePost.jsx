@@ -55,12 +55,13 @@ export const CreatePost = ({ setDisplay }) => {
         id: currentUserData.id,
       },
     };
-    addDocument('posts', postId, data).then(() => {
-      swal('Thành công!', 'Tạo bài viết thành công.', 'success');
-      setDisplay(false);
-      router.push('/');
-      window.location.reload();
-    });
+    addDocument('posts', postId, data)
+      .then(() => {
+        swal('Thành công!', 'Tạo bài viết thành công.', 'success');
+        setDisplay(false);
+        router.push('/');
+      })
+      .then(() => window.location.reload());
   };
 
   return (
