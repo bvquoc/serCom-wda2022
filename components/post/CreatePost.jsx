@@ -3,10 +3,11 @@ import { onInputChange } from '../../libs';
 import uniqid from 'uniqid';
 import { addDocument } from '../../libs/firestore/update-document/add-a-document';
 import swal from 'sweetalert';
+import { useRouter } from 'next/router';
 
 export const CreatePost = ({ setDisplay }) => {
   const [checked, setChecked] = useState(false);
-
+  const router = useRouter();
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -46,7 +47,10 @@ export const CreatePost = ({ setDisplay }) => {
       ...formData,
     };
 
-    addDocument('posts', postId, data);
+    addDocument('posts', postId, data).then(() => {
+      setDisplay(false);
+      router.push('/');
+    });
     swal('Thành công!', 'Tạo bài viết thành công.', 'success');
   };
 

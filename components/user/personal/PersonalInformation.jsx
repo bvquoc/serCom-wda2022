@@ -17,18 +17,17 @@ const PersonalInformation = () => {
     if (mounted)
       if (router.isReady) {
         getUser(router.query.id).then((res) => {
-          if(res.length === 0) router.isFallback = true;
-          setUser(res[0])
+          if (res.length === 0) router.isFallback = true;
+          setUser(res[0]);
         });
       }
     return () => {
       mounted = false;
     };
-  }, [router.isReady,router.query.id]);
-  
+  }, [router.isReady, router.query.id]);
 
   // protect route
-  if(router.isFallback){
+  if (router.isFallback) {
     router.push('/404');
   }
   if (!user) return <Loading />;
@@ -38,9 +37,9 @@ const PersonalInformation = () => {
       <div>
         <div className="PersonalInformation">
           <div className="pi-img center">
-            <Image src="/icon-512x512.png" alt="Avatar" width={512} height={512} objectFit="contain" priority />
+            <img src={!user.avatar.url ? '/defaultAvatar.jpg' : user.avatar.url} alt="Avatar" />
           </div>
-          <div className="pi-info" key={user.id}>
+          <div className="pi-info">
             <div className="pi-name">
               <i className="bi bi-person-rolodex"></i> Họ và tên: <b>{user.fullName}</b>
             </div>

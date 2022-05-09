@@ -65,7 +65,7 @@ export default function RegisterForm() {
       },
       votedPosts: [],
       avatar: {
-        url: ''
+        url: null
       }
     };
     delete userData['password'];

@@ -4,6 +4,7 @@ import { CreatePost } from '../post/CreatePost';
 
 const CreatePostLayout = () => {
 
+
     const [display, setDisplay] = useState(false);
     return (
     <>
@@ -11,7 +12,7 @@ const CreatePostLayout = () => {
         <div className="flex-default">
           <div className="center">
             <div className="create-post-img">
-              <Image src="/icon-512x512.png" alt="Avatar" width={512} height={512} objectFit="contain" priority />
+              <img src= {""} alt="Avatar"/>
             </div>
           </div>
           <input onClick={() => setDisplay(true)} type="text" name="postCreate" placeholder="Kêu gọi hỗ trợ..." readOnly />

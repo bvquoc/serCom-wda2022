@@ -13,3 +13,12 @@
   -ms-flex-direction: column;
   flex-direction: column;
 }
+
+.pi-img > img{
+  width: 80%;
+  border-radius: 10px;
+  object-fit: contain;
+}
+.pi-img{
+  margin-bottom: 1rem;
+}

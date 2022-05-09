@@ -1,9 +1,12 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { AuthContext } from '../../../contexts/AuthContext';
 import { onInputChange } from '../../../libs';
 
 const MoneyDeposit = ({ display, setDisplay }) => {
   const minMoney = 100000;
   const maxMoney = 20000000;
+
+  const { currentUserData } = useContext(AuthContext);
 
   const [formData, setFormData] = useState({
     money: 0,
@@ -36,6 +39,7 @@ const MoneyDeposit = ({ display, setDisplay }) => {
               min={minMoney}
               max={maxMoney}
             />
+            <cite>Số dư ví: {currentUserData?.totalMoney || 0}</cite>
             <h3>Phương thức thanh toán</h3>
             <label htmlFor="payment" className="flex-space-around">
               <div className="center">
