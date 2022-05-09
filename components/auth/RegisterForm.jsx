@@ -8,9 +8,6 @@ import { validate } from 'email-validator';
 import { onInputChange } from '../../libs';
 import Loading from '../onLoad/Loading';
 import MetaData from '../meta/MetaData';
-import { firebase } from '../../libs/firebase';
-import { firestore } from '../../libs/firebase';
-import { doc, setDoc } from 'firebase/firestore';
 import { addDocument } from '../../libs/add-a-document';
 
 export default function RegisterForm() {
