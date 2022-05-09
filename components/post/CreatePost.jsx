@@ -20,15 +20,16 @@ export const CreatePost = ({ setDisplay }) => {
     value: 0,
   });
 
+  // const [img, setImg] = useState(null);
+
   const handleSubmit = () => {
     const isTarget = {
       isChecked: checked,
-      value: formData.value,
       dateStart: formData.dateStart,
       dateEnd: formData.dateEnd,
     };
     const { title, description } = formData;
-    const { isChecked, value, dateStart, dateEnd } = isTarget;
+    const { isChecked, dateStart, dateEnd } = isTarget;
     if (!title) {
       return swal('Vui lòng nhập tiêu đề', '', 'warning');
     }
@@ -42,6 +43,7 @@ export const CreatePost = ({ setDisplay }) => {
       if (dateStart > dateEnd) {
         return swal('Ngày bắt đầu phải nhỏ hơn ngày kết thúc', '', 'warning');
       }
+      if (formData.value < 0) return swal('Vui lòng nhập giá trị hợp lệ!', '', 'warning');
     }
 
     const postId = uniqid('post');
@@ -49,6 +51,7 @@ export const CreatePost = ({ setDisplay }) => {
       id: postId,
       ...isTarget,
       ...formData,
+      given: 0,
       createdAt: timestamp.utc('YYYY/MM/DD:mm:ss'),
 
       user: {
@@ -121,7 +124,7 @@ export const CreatePost = ({ setDisplay }) => {
                   type="file"
                   name="post-image"
                   id="post-image"
-                  onChange={(e) => console.log(e.target.files[0].name)}
+                  // onChange={(e) => setImg(URL.createObjectURL(e.target.files[0]))}
                 />
                 <div className="center">
                   <i className="bi bi-upload"></i>

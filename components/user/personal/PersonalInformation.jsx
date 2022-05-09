@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { getUser } from '../../../service';
@@ -37,7 +36,7 @@ const PersonalInformation = () => {
       <div>
         <div className="PersonalInformation">
           <div className="pi-img center">
-            <img src={!user.avatar.url ? '/defaultAvatar.jpg' : user.avatar.url} alt="Avatar" />
+            <img src={user.avatar.url || '/defaultAvatar.jpg'} alt="Avatar" />
           </div>
           <div className="pi-info">
             <div className="pi-name">

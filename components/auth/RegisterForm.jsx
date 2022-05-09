@@ -42,7 +42,7 @@ export default function RegisterForm() {
       swal('Địa chỉ email không hợp lệ!', '', 'warning');
       return;
     }
-    if (password != confirmPassword) {
+    if (password !== confirmPassword) {
       swal('Vui lòng xác nhận lại mật khẩu!', '', 'warning');
       return;
     }

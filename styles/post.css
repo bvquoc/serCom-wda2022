@@ -90,11 +90,17 @@ main {
 .target-amout {
   background-color: var(--quaternaryColor);
   height: 10px;
-  width: 80%;
   position: absolute;
   left: 0;
   top: 0;
   border-radius: var(--borderRadius);
+}
+
+.given{
+  padding: 0.6rem;
+  background-color: rgb(229, 79, 79);
+  color: var(--contrastTextColor);
+  border-radius: 10px;
 }
 
 .TopActivities {

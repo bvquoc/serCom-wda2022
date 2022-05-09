@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { DonateAction, ImagePopUp } from '../layout';
 
-const PostDetail = ({ description, title, imgURL, isChecked, createdAt, user }) => {
+const PostDetail = ({ description, title, imgURL, isChecked, createdAt, user, value, given }) => {
   const [display, setDisplay] = useState(false);
   const [popUpImage, setPopUpImage] = useState(false);
   console.log(user);
@@ -14,7 +14,7 @@ const PostDetail = ({ description, title, imgURL, isChecked, createdAt, user }) 
         <div className="post-detail-top">
           <div className="post-user-info">
             <div className="post-user-info-img">
-              <img alt="avatar" src={user.avatar.url || "/defaultAvatar.jpg"} />
+              <img alt="avatar" src={user.avatar.url || '/defaultAvatar.jpg'} />
             </div>
             <div className="post-user-info-name">
               <Link href={{ pathname: '/user/profile', query: { id: user.id } }}>
@@ -42,9 +42,15 @@ const PostDetail = ({ description, title, imgURL, isChecked, createdAt, user }) 
           <div className="post-detail-bottom">
             <h3>Mục tiêu</h3>
             <div className="target">
-              <div className="target-amout"></div>
+              <div className="target-amout" style={{ width: (given / value) * 100 + '%' }}></div>
             </div>
-            <div style={{ textAlign: 'center' }}>Đã nhận được 3/5 triệu</div>
+            <div style={{ textAlign: 'center', marginTop: '1rem' }}>
+              Đã nhận được{' '}
+              <span className='given'>
+                <b>{given}/{value}</b>
+              </span>{' '}
+              VNĐ
+            </div>
           </div>
         )}
         <button className="vote-btn flex-space-between">

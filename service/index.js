@@ -42,14 +42,9 @@ export const getAllPosts = async () => {
 };
 
 export const getUserPosts = async (id) => {
-  const postsCollection = collection(firestore, 'posts');
-  const postsQuery = query(postsCollection, where('userId', '==', id || ''));
   const result = [];
-  await getDocs(postsQuery).then((snapshot) => {
-    snapshot.docs.forEach((doc) => {
-      result.push({ ...doc.data(), _docId: doc.id });
-    });
-  });
-  console.log('user posts:', result);
+  await getUser(id).then((user) => {
+    result = user?.isPns?.posts;
+  })
   return result;
 };
