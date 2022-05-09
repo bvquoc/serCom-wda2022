@@ -1,5 +1,3 @@
-import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import SingleLogo from './SingleLogo';
 import { useRouter } from 'next/router';

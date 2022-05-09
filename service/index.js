@@ -22,8 +22,34 @@ export const getAllUsers = async () => {
   await getDocs(usersQuery).then((snapshot) => {
     snapshot.docs.forEach((doc) => {
       result.push({ ...doc.data(), _docId: doc.id });
-    })
-  })
+    });
+  });
   console.log('res:', result);
   return result;
-}
+};
+
+export const getAllPosts = async () => {
+  const postsCollection = collection(firestore, 'posts');
+  const postsQuery = query(postsCollection);
+  const result = [];
+  await getDocs(postsQuery).then((snapshot) => {
+    snapshot.docs.forEach((doc) => {
+      result.push({ ...doc.data(), _docId: doc.id });
+    });
+  });
+  console.log('posts:', result);
+  return result;
+};
+
+export const getUserPosts = async (id) => {
+  const postsCollection = collection(firestore, 'posts');
+  const postsQuery = query(postsCollection, where('userId', '==', id || ''));
+  const result = [];
+  await getDocs(postsQuery).then((snapshot) => {
+    snapshot.docs.forEach((doc) => {
+      result.push({ ...doc.data(), _docId: doc.id });
+    });
+  });
+  console.log('user posts:', result);
+  return result;
+};

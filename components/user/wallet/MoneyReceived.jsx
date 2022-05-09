@@ -1,10 +1,10 @@
-import React from 'react';
+import { toDot } from "../../../libs";
 
-const MoneyReceived = () => {
+const MoneyReceived = ({money}) => {
   return (
     <div className="MoneyDonated MoneyReceived">
       <h3>Số tiền đã nhận được</h3>
-      <div className="money">1.000.000 VNĐ</div>
+      <div className="money">{toDot(money)} VNĐ</div>
     </div>
   );
 };

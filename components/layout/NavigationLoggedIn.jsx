@@ -1,12 +1,12 @@
 import { signOut } from 'firebase/auth';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useContext, useState } from 'react';
 import swal from 'sweetalert';
 import { AuthContext } from '../../contexts/AuthContext';
 import { auth } from '../../libs/firebase';
 import SingleLogo from './SingleLogo';
-import { useRouter } from 'next/router';
 
 const NavigationLoggedIn = () => {
   const [expand, setExpand] = useState(false);

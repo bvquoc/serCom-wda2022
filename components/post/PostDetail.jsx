@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
-import DonateAction from '../layout/DonateAction';
-import ImagePopUp from '../layout/ImagePopUp';
+import { DonateAction, ImagePopUp } from '../layout';
+import moment from 'moment';
 
-const PostDetail = ({ hrefId }) => {
+const PostDetail = ({ description, title, imgURL, isTarget, createdAt, createdBy }) => {
   const [display, setDisplay] = useState(false);
   const [popUpImage, setPopUpImage] = useState(false);
   return (
@@ -16,10 +16,10 @@ const PostDetail = ({ hrefId }) => {
               <Image alt="avatar" src="/icon-512x512.png" width={512} height={512} objectFit="contain" />
             </div>
             <div className="post-user-info-name">
-              <Link href={{ pathname: '/user/profile', query: { id: hrefId } }}>
-                <a>Họ và tên</a>
+              <Link href={{ pathname: '/user/profile', query: { id: '1' } }}>
+                <a>{createdBy}</a>
               </Link>
-              <cite>đăng lúc time</cite>
+              <cite>đăng lúc {moment(createdAt).format('dd/mm/yyyy')}</cite>
             </div>
           </div>
 
@@ -34,24 +34,18 @@ const PostDetail = ({ hrefId }) => {
           <h2>Tiêu đề</h2>
           <p>Mô tả</p>
           <div className="post-detail-content-img center">
-            <Image
-              alt="image"
-              src="/icon-512x512.png"
-              width={256}
-              height={256}
-              objectFit="contain"
-              quality={75}
-              onClick={() => setPopUpImage(true)}
-            />
+            <img alt="image" src={imgURL} onClick={() => setPopUpImage(true)} />
           </div>
         </div>
-        <div className="post-detail-bottom">
-          <h3>Mục tiêu</h3>
-          <div className="target">
-            <div className="target-amout"></div>
+        {isTarget && (
+          <div className="post-detail-bottom">
+            <h3>Mục tiêu</h3>
+            <div className="target">
+              <div className="target-amout"></div>
+            </div>
+            <div style={{ textAlign: 'center' }}>Đã nhận được 3/5 triệu</div>
           </div>
-          <div style={{ textAlign: 'center' }}>Đã nhận được 3/5 triệu</div>
-        </div>
+        )}
         <button className="vote-btn flex-space-between">
           <div>
             <i className={`bi bi-${!true ? 'heart' : 'heart-fill'}`}></i>
@@ -60,7 +54,7 @@ const PostDetail = ({ hrefId }) => {
         </button>
       </div>
       {display && <DonateAction setDisplay={setDisplay} />}
-      {popUpImage && <ImagePopUp imgURL={'/icon-512x512.png'} setDisplay={setPopUpImage} />}
+      {popUpImage && <ImagePopUp imgURL={imgURL} setDisplay={setPopUpImage} />}
     </>
   );
 };

@@ -43,7 +43,7 @@ const Donators = () => {
             </div> */}
           </div>
         </div>
-        <DonatorList allUsers={allUsers.filter((item) => item.fullname.includes(searchValue))} />
+        <DonatorList allUsers={allUsers.filter((item) => item.fullName.includes(searchValue))} />
         {/* <p>Hiện tại chưa có Người ủng hộ nào</p> */}
       </div>
       <Footer />

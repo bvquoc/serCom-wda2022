@@ -20,7 +20,7 @@ const UpdateUserInformation = ({ setDisplay }) => {
   }, [router.isReady]);
 
   const [formData, setFormData] = useState({
-    fullName: fetchData?.fullname,
+    fullName: fetchData?.fullName,
     email: fetchData?.email,
     telephone: fetchData?.telephone,
     address: fetchData?.address,
@@ -47,7 +47,7 @@ const UpdateUserInformation = ({ setDisplay }) => {
             <input
               type="text"
               name="fullName"
-              placeholder={fetchData.fullname}
+              placeholder={fetchData.fullName}
               onChange={(e) => onInputChange(e, formData, setFormData)}
             />
             <input
@@ -63,12 +63,12 @@ const UpdateUserInformation = ({ setDisplay }) => {
               onChange={(e) => onInputChange(e, formData, setFormData)}
             />
 
-            <input
+            {/* <input
               type="text"
               name="address"
               placeholder={fetchData.address}
               onChange={(e) => onInputChange(e, formData, setFormData)}
-            />
+            /> */}
             <div className="reverse-flex-default">
               <button
                 className="cancel-btn"

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import {useState} from "react";
+import { useState } from "react";
 import { CreatePost } from '../post/CreatePost';
 
 const CreatePostLayout = () => {

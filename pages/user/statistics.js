@@ -25,7 +25,7 @@ const UserStatistics = () => {
 
   return (
     <>
-      <MetaData title={`Thống kê - ${user?.fullname}`} description="Thống kê" />
+      <MetaData title={`Thống kê - ${user?.fullName}`} description="Thống kê" />
       <SingleLogo />
       <h1>Thống kê</h1>
       <h2>TÍnh năng đang được phát triển...</h2>

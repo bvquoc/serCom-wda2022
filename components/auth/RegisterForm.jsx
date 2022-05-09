@@ -1,14 +1,14 @@
-import Link from 'next/link';
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
-import swal from 'sweetalert';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { auth } from '../../libs/firebase';
 import { validate } from 'email-validator';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import swal from 'sweetalert';
 import { onInputChange } from '../../libs';
-import Loading from '../onLoad/Loading';
-import MetaData from '../meta/MetaData';
 import { addDocument } from '../../libs/add-a-document';
+import { auth } from '../../libs/firebase';
+import MetaData from '../meta/MetaData';
+import Loading from '../onLoad/Loading';
 
 export default function RegisterForm() {
   const [formData, setFormData] = useState({

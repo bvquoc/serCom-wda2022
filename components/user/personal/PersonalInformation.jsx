@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import { getUser } from '../../../service';
 import UpdateUserInformation from '../../management/UpdateUserInformation';
 import Loading from '../../onLoad/Loading';
-import Custom404 from "../../../pages/404"
 
 const PersonalInformation = () => {
   const router = useRouter();
@@ -43,7 +42,7 @@ const PersonalInformation = () => {
           </div>
           <div className="pi-info" key={user.id}>
             <div className="pi-name">
-              <i className="bi bi-person-rolodex"></i> Họ và tên: <b>{user.fullname}</b>
+              <i className="bi bi-person-rolodex"></i> Họ và tên: <b>{user.fullName}</b>
             </div>
             <div className="pi-email">
               <i className="bi bi-envelope"></i> Email: {user.email}
@@ -51,9 +50,9 @@ const PersonalInformation = () => {
             <div className="pi-phone">
               <i className="bi bi-phone"></i> Số điện thoại: {user.telephone}
             </div>
-            <div className="pi-address">
+            {/* <div className="pi-address">
               <i className="bi bi-geo-alt"></i> Địa chỉ: {user.address}
-            </div>
+            </div> */}
           </div>
           <button style={{ marginTop: '1rem' }} onClick={() => setDisplay(true)}>
             Chỉnh sửa thông tin cá nhân

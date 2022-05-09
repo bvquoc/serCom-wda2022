@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+
 export default function ScrollToTop() {
   const [visible, setVisible] = useState(false);
   const toggleVisible = () => {

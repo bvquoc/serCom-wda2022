@@ -16,7 +16,7 @@ const DonatorList = ({ allUsers }) => {
             <Link href={{ pathname: '/user/profile', query: { id: user.id } }} key={user.id} passHref>
               <tr>
                 <td>{index + 1}</td>
-                <td>{user.fullname}</td>
+                <td>{user.fullName}</td>
                 <td>{user.totalMoney}</td>
               </tr>
             </Link>

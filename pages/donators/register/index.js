@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import SingleLogo from '../../../components/layout/SingleLogo';
+import { SingleLogo } from '../../../components/layout';
 import MetaData from '../../../components/meta/MetaData';
 import Loading from '../../../components/onLoad/Loading';
 import DonatorRegisterForm from '../../../components/user/DonatorRegisterForm';

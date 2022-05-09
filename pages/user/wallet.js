@@ -1,16 +1,11 @@
 import { useRouter } from 'next/router';
-import { useContext, useState } from 'react';
-import { useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import SingleLogo from '../../components/layout/SingleLogo';
 import MetaData from '../../components/meta/MetaData';
 import Loading from '../../components/onLoad/Loading';
-import MoneyDeposit from '../../components/user/wallet/MoneyDeposit';
-import MoneyDonated from '../../components/user/wallet/MoneyDonated';
-import MoneyInWallet from '../../components/user/wallet/MoneyInWallet';
-import MoneyReceived from '../../components/user/wallet/MoneyReceived';
-import WithDrawMoney from '../../components/user/wallet/WithDrawMoney';
+import { MoneyDeposit, MoneyDonated, MoneyInWallet, MoneyReceived, WithDrawMoney } from '../../components/user/wallet';
 import { AuthContext } from '../../contexts/AuthContext';
-import { getAllUsers, getUser } from '../../service';
+import { getUser } from '../../service';
 import Custom404 from '../404';
 
 const Wallet = () => {
@@ -40,7 +35,7 @@ const Wallet = () => {
 
   return (
     <>
-      <MetaData title={`Ví của tôi - ${user.fullname}`} description="Ví của tôi" />
+      <MetaData title={`Ví của tôi - ${user.fullName}`} description="Ví của tôi" />
       <SingleLogo />
       <div className="flex-space-between">
         <h1>
@@ -64,8 +59,8 @@ const Wallet = () => {
         </div>
       </div>
       <div className="grid-container r-wallet">
-        <MoneyInWallet />
-        {true === null ? <Loading /> : true === 'pns' ? <MoneyReceived /> : <MoneyDonated />}
+        <MoneyInWallet money={user?.totalMoney || 0} />
+        {true === null ? <Loading /> : true === 'pns' ? <MoneyReceived money={0} /> : <MoneyDonated money={user?.Donator?.moneyDonated || 0}/>}
         <WithDrawMoney display={display} setDisplay={setDisplay} />
         <MoneyDeposit display={deposit} setDisplay={setDeposit} />
       </div>

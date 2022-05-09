@@ -32,7 +32,7 @@ const Profile = () => {
 
   return (
     <>
-      <MetaData title={`Trang cá nhân - ${user?.fullname}`} description="Trang cá nhân" />
+      <MetaData title={`Trang cá nhân - ${user?.fullName}`} description="Trang cá nhân" />
       <SingleLogo />
 
       <div className="Profile">

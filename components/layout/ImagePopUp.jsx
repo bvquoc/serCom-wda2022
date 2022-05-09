@@ -1,16 +1,16 @@
-import Image from "next/image"
 
-const ImagePopUp = ({setDisplay, imgURL}) => {
+
+const ImagePopUp = ({ setDisplay, imgURL }) => {
   return (
     <>
-        <div className='wide-screen'>
+      <div className="wide-screen">
         <i className="bi bi-x-lg" onClick={() => setDisplay(false)}></i>
-            <div className='center' style={{minHeight:"100vh"}}>
-                <Image src={imgURL} alt="Pop up Image" width={512} height={512} objectFit="contain" priority />
-            </div>
+        <div className="center" style={{ minHeight: '100vh' }}>
+          <img src={imgURL} alt="Pop up Image" style={{width: "100%"}} />
         </div>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default ImagePopUp
+export default ImagePopUp;
