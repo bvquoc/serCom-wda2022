@@ -7,7 +7,7 @@ const AllPosts = ({ posts }) => {
       <div className="AllPosts">
         <div className="post-container">
           {posts.map((post) => (
-            <PostDetail key={post._docId} {...post} />
+            <PostDetail key={post._docId} {...post}/>
           ))}
         </div>
       </div>

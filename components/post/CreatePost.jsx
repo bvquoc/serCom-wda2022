@@ -34,7 +34,7 @@ export const CreatePost = ({ setDisplay }) => {
       posts.push(postId);
       const newIsPns = { ...updateTerm, posts };
       const updateData = {
-        role: newIsPns,
+        [role]: newIsPns,
       };
       updateDocument('users', userId, updateData);
     } else {

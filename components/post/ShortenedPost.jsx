@@ -2,9 +2,10 @@ import { useState } from 'react';
 import DeletePost from './DeletePost';
 import UpdatePost from './UpdatePost';
 
-const ShortenedPost = () => {
+const ShortenedPost = ({ post }) => {
   const [displayDelete, setDisplayDelete] = useState(false);
   const [displayUpdate, setDisplayUpdate] = useState(false);
+  console.log(post);
 
   return (
     <>
@@ -44,7 +45,7 @@ const ShortenedPost = () => {
               </button>
             </div>
           </div>
-        </div>  
+        </div>
       </div>
       {displayDelete && <DeletePost setDisplay={setDisplayDelete} />}
       {displayUpdate && <UpdatePost setDisplay={setDisplayUpdate} />}

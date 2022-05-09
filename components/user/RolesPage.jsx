@@ -5,7 +5,7 @@ import PostManageModal from '../management/PostManageModal';
 import Loading from '../onLoad/Loading';
 import UserPost from '../post/UserPost';
 
-const RolesPage = ({ role }) => {
+const RolesPage = ({ role, currentUserData }) => {
   const [display, setDisplay] = useState(false);
   const [user, setUser] = useState(null);
 
@@ -23,9 +23,9 @@ const RolesPage = ({ role }) => {
     <>
       <div className="UserPosts">
         <div className="flex-space-between">
-          <h2>Bài viết đã {role !== 'pns' ? 'đăng' : 'ủng hộ'}</h2>
+          <h2>Bài viết đã {role === 'pns' ? 'đăng' : 'ủng hộ'}</h2>
           <div className="post-manage center">
-            {role !== 'pns' && (
+            {(role === 'pns' && currentUserData.id === router.query.id) && (
               <button className="post-manage-btn" onClick={() => setDisplay(true)}>
                 <i className="bi bi-gear"></i> Quản lí bài viết
               </button>

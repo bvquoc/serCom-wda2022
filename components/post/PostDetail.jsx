@@ -1,11 +1,14 @@
 import moment from 'moment';
 import Link from 'next/link';
 import { useState } from 'react';
+import { AuthContext } from '../../contexts/AuthContext';
 import { DonateAction, ImagePopUp } from '../layout';
+import { useContext } from 'react';
 
 const PostDetail = ({ description, title, imgURL, isChecked, createdAt, user, value, given }) => {
   const [display, setDisplay] = useState(false);
   const [popUpImage, setPopUpImage] = useState(false);
+  const { currentUserData } = useContext(AuthContext);
   console.log(user);
 
   return (
@@ -25,7 +28,7 @@ const PostDetail = ({ description, title, imgURL, isChecked, createdAt, user, va
           </div>
 
           {/* set role's display hear */}
-          {true && (
+          {currentUserData.isDonator.auth && (
             <button className="donate-btn" onClick={() => setDisplay(true)}>
               Ủng hộ
             </button>
@@ -46,8 +49,10 @@ const PostDetail = ({ description, title, imgURL, isChecked, createdAt, user, va
             </div>
             <div style={{ textAlign: 'center', marginTop: '1rem' }}>
               Đã nhận được{' '}
-              <span className='given'>
-                <b>{given}/{value}</b>
+              <span className="given">
+                <b>
+                  {given}/{value}
+                </b>
               </span>{' '}
               VNĐ
             </div>

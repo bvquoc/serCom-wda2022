@@ -1,15 +1,15 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import swal from 'sweetalert';
-const UpdatePost = ({ setDisplay }) => {
+const UpdatePost = ({ setDisplay, currentUserData }) => {
   // check if target ref is checked, the target will be displayed
   // if not, nothing will be displayed
   const [target, setTarget] = useState(false);
 
   const handleSubmit = () => {
-    swal('Chỉnh sửa bài viết thành công','','success');
+    swal('Chỉnh sửa bài viết thành công', '', 'success');
     setDisplay(false);
-  }
+  };
 
   return (
     <>
@@ -50,14 +50,22 @@ const UpdatePost = ({ setDisplay }) => {
               </span>
               <div className="flex-default">
                 <input type="file" name="post-image" id="post-image" />
-                <div className='center'>
+                <div className="center">
                   <i className="bi bi-upload"></i>
                 </div>
               </div>
             </label>
             <div className="reverse-flex-default">
-              <button className="edit-confirm-btn" onClick={handleSubmit}>Chỉnh sửa bài viết</button>
-              <button className="delete-confirm-btn" style={{margin: "2rem 1rem 0 0"}} onClick={() => setDisplay(false)}>Hủy bỏ</button>
+              <button className="edit-confirm-btn" onClick={handleSubmit}>
+                Chỉnh sửa bài viết
+              </button>
+              <button
+                className="delete-confirm-btn"
+                style={{ margin: '2rem 1rem 0 0' }}
+                onClick={() => setDisplay(false)}
+              >
+                Hủy bỏ
+              </button>
             </div>
           </div>
         </div>

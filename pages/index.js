@@ -1,13 +1,12 @@
-import { useContext, useState, useEffect } from 'react';
-import { Navigation, NavigationLoggedIn, ScrollToTop, TopDonators, WelcomePage } from '../components/layout';
-import { CreatePostLayout } from '../components/layout';
+import { useRouter } from 'next/router';
+import { useContext, useEffect, useState } from 'react';
+import { CreatePostLayout, Navigation, NavigationLoggedIn, ScrollToTop, TopDonators, WelcomePage } from '../components/layout';
 import Footer from '../components/layout/Footer';
 import MetaData from '../components/meta/MetaData';
+import Loading from '../components/onLoad/Loading';
 import AllPosts from '../components/post/AllPosts';
 import { AuthContext } from '../contexts/AuthContext';
-import { useRouter } from 'next/router';
-import { getAllPosts, getUser } from '../service';
-import Loading from '../components/onLoad/Loading';
+import { getAllPosts } from '../service';
 
 export default function Home() {
   const { loggedUser } = useContext(AuthContext);

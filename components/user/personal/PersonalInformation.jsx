@@ -4,7 +4,7 @@ import { getUser } from '../../../service';
 import UpdateUserInformation from '../../management/UpdateUserInformation';
 import Loading from '../../onLoad/Loading';
 
-const PersonalInformation = () => {
+const PersonalInformation = ({ currentUserData }) => {
   const router = useRouter();
 
   const [display, setDisplay] = useState(false);
@@ -52,9 +52,11 @@ const PersonalInformation = () => {
               <i className="bi bi-geo-alt"></i> Địa chỉ: {user.address}
             </div> */}
           </div>
-          <button style={{ marginTop: '1rem' }} onClick={() => setDisplay(true)}>
-            Chỉnh sửa thông tin cá nhân
-          </button>
+          {currentUserData.id === user.id && (
+            <button style={{ marginTop: '1rem' }} onClick={() => setDisplay(true)}>
+              Chỉnh sửa thông tin cá nhân
+            </button>
+          )}
         </div>
       </div>
       {display && <UpdateUserInformation setDisplay={setDisplay} />}

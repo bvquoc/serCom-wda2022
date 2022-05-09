@@ -9,9 +9,10 @@ import PersonalInformation from '../../components/user/personal/PersonalInformat
 import RolesPage from '../../components/user/RolesPage';
 import { AuthContext } from '../../contexts/AuthContext';
 import { getUser } from '../../service';
+import Loading from '../../components/onLoad/Loading';
 
 const Profile = () => {
-  const { loggedUser } = useContext(AuthContext);
+  const { loggedUser, currentUserData } = useContext(AuthContext);
 
   const router = useRouter();
   const [user, setUser] = useState(null);
@@ -29,6 +30,7 @@ const Profile = () => {
   }, [router.isReady]);
 
   // console.log(user);
+  if (!user) return <Loading />;
 
   return (
     <>
@@ -37,10 +39,10 @@ const Profile = () => {
 
       <div className="Profile">
         <div className="grid-4-6">
-          <PersonalInformation/>
+          <PersonalInformation currentUserData={currentUserData} />
           <div>
             <CreatePostLayout />
-            {loggedUser && <RolesPage />}
+            {loggedUser && <RolesPage currentUserData={currentUserData} role={user.isPns.auth ? 'pns' : 'donator'} />}
           </div>
         </div>
       </div>

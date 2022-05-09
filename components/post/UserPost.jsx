@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { getAllPosts, getUserPosts } from '../../service';
-import PostDetail from './PostDetail';
+import { getAllPosts } from '../../service';
 import Loading from '../onLoad/Loading';
+import PostDetail from './PostDetail';
 
 const UserPost = ({ postId }) => {
   const [userPost, setUserPost] = useState(null);
