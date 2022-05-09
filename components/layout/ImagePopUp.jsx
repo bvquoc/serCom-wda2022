@@ -6,7 +6,7 @@ const ImagePopUp = ({ setDisplay, imgURL }) => {
       <div className="wide-screen">
         <i className="bi bi-x-lg" onClick={() => setDisplay(false)}></i>
         <div className="center" style={{ minHeight: '100vh' }}>
-          <img src={imgURL} alt="Pop up Image" style={{width: "100%"}} />
+          <img src={imgURL} alt="Pop up Image" style={{width: "100%", height: "500px", objectFit: "contain"}} />
         </div>
       </div>
     </>

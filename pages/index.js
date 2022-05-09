@@ -6,7 +6,7 @@ import MetaData from '../components/meta/MetaData';
 import AllPosts from '../components/post/AllPosts';
 import { AuthContext } from '../contexts/AuthContext';
 import { useRouter } from 'next/router';
-import { getAllPosts } from '../service';
+import { getAllPosts, getUser } from '../service';
 import Loading from '../components/onLoad/Loading';
 
 export default function Home() {
@@ -21,6 +21,7 @@ export default function Home() {
       if (router.isReady) {
         getAllPosts().then((res) => setPosts(res));
       }
+
     return () => {
       mounted = false;
     };

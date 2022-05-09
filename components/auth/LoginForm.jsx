@@ -28,7 +28,7 @@ export default function LoginForm() {
   }, [user, error, router]);
 
   const { save, setSave } = useContext(AuthContext);
-  console.log(save);
+  
   const handleSubmit = () => {
     const { email, password } = formData;
     if (!email || !password) {

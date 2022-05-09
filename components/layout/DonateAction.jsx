@@ -1,13 +1,17 @@
-import { useState } from 'react';
-import { onInputChange } from '../../libs';
+import { useContext, useState } from 'react';
+import { AuthContext } from '../../contexts/AuthContext';
+import { onInputChange, toDot } from '../../libs';
 
-const DonateAction = ({setDisplay}) => {
+const DonateAction = ({ setDisplay }) => {
   const minMoney = 100000;
   const maxMoney = 20000000;
+  const { currentUserData } = useContext(AuthContext);
+
+  console.log(currentUserData);
 
   const [formData, setFormData] = useState({
     money: 0,
-    paymentMethod: "on",
+    paymentMethod: 'on',
   });
 
   const handleSubmit = () => {
@@ -38,6 +42,7 @@ const DonateAction = ({setDisplay}) => {
               min={minMoney}
               max={maxMoney}
             />
+            <cite>Số dư ví: {toDot(currentUserData?.totalMoney) || 0}</cite>
             <h3>Phương thức thanh toán</h3>
             <label htmlFor="payment" className="flex-space-around">
               <div className="center">

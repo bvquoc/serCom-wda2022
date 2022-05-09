@@ -1,12 +1,13 @@
+import moment from 'moment';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { DonateAction, ImagePopUp } from '../layout';
-import moment from 'moment';
 
 const PostDetail = ({ description, title, imgURL, isTarget, createdAt, createdBy }) => {
   const [display, setDisplay] = useState(false);
   const [popUpImage, setPopUpImage] = useState(false);
+
   return (
     <>
       <div className="PostDetail">
