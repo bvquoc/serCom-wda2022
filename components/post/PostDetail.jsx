@@ -1,12 +1,15 @@
 import moment from 'moment';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { DonateAction, ImagePopUp } from '../layout';
+import Loading from "../onLoad/Loading"
 
-const PostDetail = ({ description, title, imgURL, isTarget, createdAt, createdBy }) => {
+const PostDetail = ({ description, title, imgURL, isTarget, createdAt, user }) => {
   const [display, setDisplay] = useState(false);
   const [popUpImage, setPopUpImage] = useState(false);
+  console.log(user);
+
+  // if(!user) return <Loading />;
 
   return (
     <>
@@ -14,13 +17,13 @@ const PostDetail = ({ description, title, imgURL, isTarget, createdAt, createdBy
         <div className="post-detail-top">
           <div className="post-user-info">
             <div className="post-user-info-img">
-              <Image alt="avatar" src="/icon-512x512.png" width={512} height={512} objectFit="contain" />
+              <img alt="avatar" src={user.avatar.url || "/defaultAvatar.jpg"} />
             </div>
             <div className="post-user-info-name">
-              <Link href={{ pathname: '/user/profile', query: { id: '1' } }}>
-                <a>{createdBy}</a>
+              <Link href={{ pathname: '/user/profile', query: { id: user.id } }}>
+                <a>{user.createdBy}</a>
               </Link>
-              <cite>đăng lúc {moment(createdAt).format('dd/mm/yyyy')}</cite>
+              <cite>đăng lúc {moment(createdAt).format('hh:mm A, DD/MM/YYYY')}</cite>
             </div>
           </div>
 

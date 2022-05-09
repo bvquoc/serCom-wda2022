@@ -10,7 +10,7 @@ import SingleLogo from './SingleLogo';
 
 const NavigationLoggedIn = () => {
   const [expand, setExpand] = useState(false);
-  const { loggedUser, setLoggedUser } = useContext(AuthContext);
+  const { loggedUser, setLoggedUser, currentUserData } = useContext(AuthContext);
   const router = useRouter();
   const handleSignOut = () => {
     swal('Đã đăng xuất!', '', 'success');
@@ -52,7 +52,7 @@ const NavigationLoggedIn = () => {
         </div>
         <div className="nav-item">
           <div className="img-dropdown" onClick={() => setExpand(!expand)}>
-            <Image src="/icon-512x512.png" alt="Avatar" objectFit="contain" width={512} height={512} priority />
+            <img src={currentUserData.avatar.url || "/defaultAvatar.jpg"} alt="Avatar"/>
           </div>
         </div>
         <div className="drop-down-content" style={{ display: expand ? 'block' : 'none' }}>

@@ -1,11 +1,14 @@
-import { useState } from 'react';
-import { onInputChange } from '../../libs';
-import uniqid from 'uniqid';
-import { addDocument } from '../../libs/firestore/update-document/add-a-document';
-import swal from 'sweetalert';
 import { useRouter } from 'next/router';
+import { useContext, useState } from 'react';
+import swal from 'sweetalert';
+import uniqid from 'uniqid';
+import { AuthContext } from '../../contexts/AuthContext';
+import { onInputChange } from '../../libs';
+import { addDocument } from '../../libs/firestore/update-document/add-a-document';
 
 export const CreatePost = ({ setDisplay }) => {
+  const { currentUserData } = useContext(AuthContext);
+  console.log(currentUserData);
   const [checked, setChecked] = useState(false);
   const router = useRouter();
   const [formData, setFormData] = useState({
@@ -45,13 +48,19 @@ export const CreatePost = ({ setDisplay }) => {
       id: postId,
       ...isTarget,
       ...formData,
+      createdAt: Date.now(),
+      user: {
+        createdBy: currentUserData.fullName,
+        avatar: { url: currentUserData.avatar.url },
+        id: currentUserData.id,
+      },
     };
-
     addDocument('posts', postId, data).then(() => {
+      swal('Thành công!', 'Tạo bài viết thành công.', 'success');
       setDisplay(false);
       router.push('/');
+      window.location.reload();
     });
-    swal('Thành công!', 'Tạo bài viết thành công.', 'success');
   };
 
   return (

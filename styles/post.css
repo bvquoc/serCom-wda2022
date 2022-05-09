@@ -21,6 +21,7 @@ main {
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   background-color: var(--primaryColor);
+  margin-bottom: 1rem;
 }
 
 .post-detail-top {
@@ -51,6 +52,12 @@ main {
   border-radius: 50%;
   margin-right: 10px;
   border: 1px solid black;
+}
+
+.post-user-info-img > img {
+  width: 100%;
+  object-fit: contain;
+  border-radius: 50%;
 }
 
 .post-user-info-name a {
@@ -166,6 +173,12 @@ main {
   border-radius: 50%;
   border: 1px solid black;
   margin-right: 1rem;
+}
+
+.create-post-img > img {
+  width: 100%;
+  object-fit: contain;
+  border-radius: 100%;
 }
 
 .CreatePostLayout button {
