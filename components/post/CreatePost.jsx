@@ -6,10 +6,12 @@ import { AuthContext } from '../../contexts/AuthContext';
 import { onInputChange } from '../../libs';
 import { addDocument } from '../../libs/firestore/update-document/add-a-document';
 import timestamp from 'time-stamp';
+import { auth, firestore } from '../../libs/firebase';
+import { doc, getDoc } from 'firebase/firestore';
+import { updateDocument } from '../../libs/firestore/update-document/update-a-document';
 
 export const CreatePost = ({ setDisplay }) => {
   const { currentUserData } = useContext(AuthContext);
-  console.log(currentUserData);
   const [checked, setChecked] = useState(false);
   const router = useRouter();
   const [formData, setFormData] = useState({
@@ -19,6 +21,24 @@ export const CreatePost = ({ setDisplay }) => {
     dateEnd: '',
     value: 0,
   });
+
+  const updateUsersPost = async (userId, postId) => {
+    const docRef = doc(firestore, 'users', userId);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      const isPns = docSnap.data().isPns;
+      const posts = [...isPns.posts];
+      posts.push(postId);
+      const newIsPns = { ...isPns, posts };
+      const updateData = {
+        isPns: newIsPns,
+      };
+      updateDocument('users', userId, updateData);
+    } else {
+      console.log('No such document!');
+    }
+  };
 
   const handleSubmit = () => {
     const isTarget = {
@@ -57,9 +77,11 @@ export const CreatePost = ({ setDisplay }) => {
         id: currentUserData.id,
       },
     };
+
     addDocument('posts', postId, data)
       .then(() => {
         swal('Thành công!', 'Tạo bài viết thành công.', 'success');
+        updateUsersPost(auth.currentUser.uid, postId);
         setDisplay(false);
         router.push('/');
       })
