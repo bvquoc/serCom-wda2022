@@ -5,6 +5,7 @@ import uniqid from 'uniqid';
 import { AuthContext } from '../../contexts/AuthContext';
 import { onInputChange } from '../../libs';
 import { addDocument } from '../../libs/firestore/update-document/add-a-document';
+import timestamp from 'time-stamp';
 
 export const CreatePost = ({ setDisplay }) => {
   const { currentUserData } = useContext(AuthContext);
@@ -48,7 +49,8 @@ export const CreatePost = ({ setDisplay }) => {
       id: postId,
       ...isTarget,
       ...formData,
-      createdAt: Date.now(),
+      createdAt: timestamp.utc('YYYY/MM/DD:mm:ss'),
+
       user: {
         createdBy: currentUserData.fullName,
         avatar: { url: currentUserData.avatar.url },
