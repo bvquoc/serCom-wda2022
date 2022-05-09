@@ -19,6 +19,7 @@
     "react-dom": "18.1.0",
     "react-firebase-hooks": "^5.0.3",
     "sweetalert": "^2.1.2",
+    "time-stamp": "^2.2.0",
     "uniqid": "^5.4.0"
   },
   "devDependencies": {
