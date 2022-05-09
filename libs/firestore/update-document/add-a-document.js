@@ -1,8 +1,7 @@
 import { doc, setDoc } from 'firebase/firestore';
-import { firestore } from './firebase';
-
+import { firestore } from '../../firebase';
 /**
- *
+ * Add a document to collection (req docId)
  * @param {String} collectionName (ex: "users")
  * @param {String} docId (ex: "12345" -> "users/12345")
  * @param {Object} data (ex: { name: "Bob", age: 25 })

@@ -8,7 +8,7 @@ import { validate } from 'email-validator';
 import { onInputChange } from '../../libs';
 import Loading from '../onLoad/Loading';
 import MetaData from '../meta/MetaData';
-import { addDocument } from '../../libs/add-a-document';
+import { addDocument } from '../../libs/firestore/update-document/add-a-document';
 
 export default function RegisterForm() {
   const [formData, setFormData] = useState({
