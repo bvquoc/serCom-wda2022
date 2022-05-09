@@ -8,6 +8,10 @@ import { validate } from 'email-validator';
 import { onInputChange } from '../../libs';
 import Loading from '../onLoad/Loading';
 import MetaData from '../meta/MetaData';
+import { firebase } from '../../libs/firebase';
+import { firestore } from '../../libs/firebase';
+import { doc, setDoc } from 'firebase/firestore';
+import { addDocument } from '../../libs/add-a-document';
 
 export default function RegisterForm() {
   const [formData, setFormData] = useState({
@@ -29,7 +33,7 @@ export default function RegisterForm() {
       }, 3000);
     }
     if (error) swal('Lỗi!', error.message, 'error');
-  }, [user, error,router]);
+  }, [user, error, router]);
 
   const handleSubmit = () => {
     const { email, password, confirmPassword, fullName, telephone } = formData;
@@ -48,7 +52,17 @@ export default function RegisterForm() {
 
     return createUserWithEmailAndPassword(email, password);
   };
-  if (user)
+
+  if (user) {
+    const userData = {
+      ...formData,
+      id: user.user.uid,
+      posts: [],
+    };
+    delete userData['password'];
+    delete userData['confirmPassword'];
+
+    addDocument('users', user.user.uid, userData);
     return (
       <>
         <MetaData title="Đăng ký" description="Đăng ký" />
@@ -56,6 +70,8 @@ export default function RegisterForm() {
         <Loading />
       </>
     );
+  }
+
   return (
     <>
       <MetaData title="Đăng ký" description="Đăng ký" />
